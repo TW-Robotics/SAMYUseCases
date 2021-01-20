@@ -1,0 +1,86 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "SAMYPlugIn_Extruder",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "SAMYPlugIn_Extruder::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SAMYPlugIn_Extruder-Debug-20f0cb1e68ed0a86f7bd.json",
+					"name" : "SAMYPlugIn_Extruder",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pref-ids-crcl_opcua::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pref-ids-crcl_opcua-Debug-0198fa4fa475c2dc9b54.json",
+					"name" : "pref-ids-crcl_opcua",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pref-ns-crcl_opcua::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pref-ns-crcl_opcua-Debug-18325afdb12de41fd72b.json",
+					"name" : "pref-ns-crcl_opcua",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pref-types-crcl_opcua::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pref-types-crcl_opcua-Debug-65e77ee02f364e397f7a.json",
+					"name" : "pref-types-crcl_opcua",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build",
+		"source" : "/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}
