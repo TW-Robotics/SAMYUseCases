@@ -1,5 +1,6 @@
 from CRCLLib import crcl
 from TransformLib import transform
+import numpy
 
 
 class RobotUnits():
@@ -31,6 +32,17 @@ def set_trans_speed(robot, transSpeed):
 
 def set_trans_accel(robot, transAccel):
     pass
+
+
+def set_workobject(robot, workobject_x, workobject_y, workobject_z,
+                   workobject_xAxis_i, workobject_xAxis_j, workobject_xAxis_k,
+                   workobject_zAxis_i, workobject_zAxis_j, workobject_zAxis_k):
+    xaxis = numpy.array([workobject_xAxis_i, workobject_xAxis_j, workobject_xAxis_k])
+    zaxis = numpy.array([workobject_zAxis_i, workobject_zAxis_j, workobject_zAxis_k])
+    yaxis = numpy.cross(zaxis, xaxis)
+    matrix = numpy.matrix([xaxis, yaxis, zaxis])
+    euler = transform.matrix_to_euler(matrix, "sxyz")
+    robot.robot_settings.workobject = ((workobject_x, workobject_y, workobject_z), euler)
 
 
 # new version with all datafields as seperate parameters

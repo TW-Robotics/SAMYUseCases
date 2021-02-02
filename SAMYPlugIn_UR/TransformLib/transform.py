@@ -136,6 +136,112 @@ def matrix_to_euler(matrix, axes='sxyz'):
         ax, az = az, ax
     return ax, ay, az
 
+FLOAT_EPS = numpy.finfo(numpy.float).eps
+
+def quaternion_to_matrix(r, i, j, k):
+    # return value: numpy array 3 x 3
+    w = r
+    x = i
+    y = j
+    z = k
+
+    Nq = w * w + x * x + y * y + z * z
+    if Nq < FLOAT_EPS:
+        return numpy.eye(3)
+    s = 2.0 / Nq
+    X = x * s
+    Y = y * s
+    Z = z * s
+    wX = w * X
+    wY = w * Y
+    wZ = w * Z
+    xX = x * X
+    xY = x * Y
+    xZ = x * Z
+    yY = y * Y
+    yZ = y * Z
+    zZ = z * Z
+    return numpy.array(
+        [[1.0 - (yY + zZ), xY - wZ, xZ + wY],
+         [xY + wZ, 1.0 - (xX + zZ), yZ - wX],
+         [xZ - wY, yZ + wX, 1.0 - (xX + yY)]])
+
+def matrix_to_quaternion(xAxis, zAxis):
+    # return value: numpy vector
+    # Qyx refers to the contribution of the y input vector component to
+    # the x output vector component.  Qyx is therefore the same as
+    # M[0,1].  The notation is from the Wikipedia article.
+
+    xaxis = numpy.array([xAxis.I, xAxis.J, xAxis.K])
+    zaxis = numpy.array([zAxis.I, zAxis.J, zAxis.K])
+    yaxis = numpy.cross(zaxis, xaxis)
+
+    Qxx = xAxis.I
+    Qyx = xAxis.J
+    Qzx = xAxis.K
+    Qxy = yaxis[0]
+    Qyy = yaxis[1]
+    Qzy = yaxis[2]
+    Qxz = zAxis.I
+    Qyz = zAxis.J
+    Qzz = zAxis.K
+
+    # Fill only lower half of symmetric matrix
+    K = numpy.array([
+        [Qxx - Qyy - Qzz, 0, 0, 0],
+        [Qyx + Qxy, Qyy - Qxx - Qzz, 0, 0],
+        [Qzx + Qxz, Qzy + Qyz, Qzz - Qxx - Qyy, 0],
+        [Qyz - Qzy, Qzx - Qxz, Qxy - Qyx, Qxx + Qyy + Qzz]]
+    ) / 3.0
+    # Use Hermitian eigenvectors, values for speed
+    vals, vecs = numpy.linalg.eigh(K)
+    # Select largest eigenvector, reorder to w,x,y,z quaternion
+    q = vecs[[3, 0, 1, 2], numpy.argmax(vals)]
+    # Prefer quaternion with positive w
+    # (q * -1 corresponds to same rotation as q)
+    if q[0] < 0:
+        q *= -1
+    return q
+
+
+def euler_to_quaternions(yaw, pitch, roll):
+
+    cy = math.cos(yaw * 0.5)
+    sy = math.sin(yaw * 0.5)
+    cp = math.cos(pitch * 0.5)
+    sp = math.sin(pitch * 0.5)
+    cr = math.cos(roll * 0.5)
+    sr = math.sin(roll * 0.5)
+
+    w = cr * cp * cy + sr * sp * sy
+    x = sr * cp * cy - cr * sp * sy
+    y = cr * sp * cy + sr * cp * sy
+    z = cr * cp * sy - sr * sp * cy
+
+    return w, x, y, z
+
+                        #w, x, y, z
+def quaternions_to_euler(r, i, j, k):
+
+    # roll (x-axis rotation)
+    sinr_cosp = 2 * (r * i + j * k)
+    cosr_cosp = 1 - 2 * (i * i + j * j)
+    roll = math.atan2(sinr_cosp, cosr_cosp)
+
+    # pitch (y-axis rotation)
+    sinp = 2 * (r * j - k * i)
+    if abs(sinp) >= 1:
+        pitch = math.copysign(math.pi / 2, sinp) # use 90 degrees if out of range
+    else:
+        pitch = math.asin(sinp)
+
+    # yaw (z-axis rotation)
+    siny_cosp = 2 * (r * k + i * j)
+    cosy_cosp = 1 - 2 * (j * j + k * k)
+    yaw = math.atan2(siny_cosp, cosy_cosp)
+
+    return roll, pitch, yaw
+
     # =========================================================
     #                   Helper functions
     # =========================================================
@@ -159,6 +265,14 @@ def get_pose_euler(waypoint):
     pose[2] = waypoint.Point.Z
 
     return pose
+
+
+def get_pose_matrix():
+    pass
+
+
+def get_pose_quaternion():
+    pass
 
 
 def parse_waypoint(self, position):

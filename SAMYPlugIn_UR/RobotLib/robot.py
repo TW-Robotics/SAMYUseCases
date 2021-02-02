@@ -11,6 +11,7 @@ from RobotLib import dashboard_server
 from threading import Thread, Lock
 import time
 import logging
+import math
 
 
 class RobotSettings:
@@ -29,6 +30,7 @@ class RobotSettings:
         self.transSpeed = 0.05
         self.transAccel = 0.2
         self.radius = 0.0
+        self.workobject = [[0, 0.4, 0],[math.pi, 0, 0]]
 
 
 class Robot(object):
@@ -121,6 +123,17 @@ class Robot(object):
     # =========================================================
     #                   Move commands
     # =========================================================
+
+    def adjust_pose(self, pose):
+        pose_new = []
+        pose_new.append(pose[0] + self.robot_settings.workobject[0][0])
+        pose_new.append(pose[1] + self.robot_settings.workobject[0][1])
+        pose_new.append(pose[2] + self.robot_settings.workobject[0][2])
+        pose_new.append(pose[3] + self.robot_settings.workobject[1][0])
+        pose_new.append(pose[4] + self.robot_settings.workobject[1][1])
+        pose_new.append(pose[5] + self.robot_settings.workobject[1][2])
+        return pose_new
+
     def movel(self, command_id, pose: list, a, v, r=0):
         # The movel command moves the robot linear to the given pose.
         #    Input parameters:
@@ -129,7 +142,11 @@ class Robot(object):
         #        v: constant speed of the TCP
         #        r: radius within the robot stays when another move command follows.
 
-        line = "movel(p[{},{},{},{},{},{}], a={}, v={}, r={})\n".format(*pose, a, v, r)
+        # adjust pose to workobject
+        pose_new = self.adjust_pose(pose)
+
+        line = "movel(p[{},{},{},{},{},{}], a={}, v={}, r={})\n".format(*pose_new, a, v, r)
+        print("sending Movel")
         self.send_command(line, command_id)
 
     def movec(self, command_id, pose_via, pose_to, a, v, r=0, mode=0):
@@ -143,10 +160,14 @@ class Robot(object):
         #       pose_to
         #       a: constant acceleration of the TCP
         #       v: constant speed of the TCP
+        # adjust pose to workobject
+        pose_via_new = self.adjust_pose(pose_via)
+        # adjust pose to workobject
+        pose_to_new = self.adjust_pose(pose_to)
 
         data = [a, v, r, mode]
-        line = "movec(p[{},{},{},{},{},{}], p[{},{},{},{},{},{}], a={}, v={}, r={}, mode={})\n".format(*pose_via,
-                                                                                                       *pose_to, *data)
+        line = "movec(p[{},{},{},{},{},{}], p[{},{},{},{},{},{}], a={}, v={}, r={}, mode={})\n".format(*pose_via_new,
+                                                                                                       *pose_to_new, *data)
         self.send_command(line, command_id)
 
     def movej(self, command_id, q, a, v, t=0, r=0):
@@ -174,7 +195,9 @@ class Robot(object):
                 t: time [S]
                 r: blend radius [m]
         """
-        line = "movej(p[{},{},{},{},{},{}], a={}, v={}, t={}, r={})\n".format(*pose, a, v, t, r)
+        # adjust pose to workobject
+        pose_new = self.adjust_pose(pose)
+        line = "movej(p[{},{},{},{},{},{}], a={}, v={}, t={}, r={})\n".format(*pose_new, a, v, t, r)
         self.send_command( line, command_id)
 
     def movep(self, command_id, pose, a, v, r=0):
@@ -187,7 +210,9 @@ class Robot(object):
                 v: tool speed [m/s]
                 r: blend radius [m]
         """
-        line = "movep(p[{},{},{},{},{},{}], a={}, v={}, r={})\n".format(*pose, a, v, r)
+        # adjust pose to workobject
+        pose_new = self.adjust_pose(pose)
+        line = "movep(p[{},{},{},{},{},{}], a={}, v={}, r={})\n".format(*pose_new, a, v, r)
         self.send_command(line, command_id)
 
     def servoc(self, command_id, pose, a, v, r=0):
@@ -200,7 +225,9 @@ class Robot(object):
                 v: tool speed [m/s]
                 r: blend radius (of target pose) [m]
         """
-        line = "servoc(p[{},{},{},{},{},{}], a={}, v={}, r={})\n".format(*pose, a, v, r)
+        # adjust pose to workobject
+        pose_new = self.adjust_pose(pose)
+        line = "servoc(p[{},{},{},{},{},{}], a={}, v={}, r={})\n".format(*pose_new, a, v, r)
         self.send_command(line, command_id)
 
     def dwell(self, command_id, dwell_time):
@@ -217,6 +244,9 @@ class Robot(object):
     # =========================================================
     #                   Data write commands
     # =========================================================
+    def set_workobject(self, x, y, z, roll, pitch, yaw):
+        self.robot_settings.workobject = [[x, y, z],[roll, pitch, yaw]]
+
     def set_tcp(self, command_id, tcp):
         """ set robot flange to tool tip transformation
             Input parameters:
@@ -266,7 +296,15 @@ class Robot(object):
             The pose refers to the base frame of the robot.
         """
         pose = self.rtde.get_actual_tcp()
-        return pose
+        # adjust pose to workobject
+        pose_new = []
+        pose_new.append(pose[0] - self.robot_settings.workobject[0][0])
+        pose_new.append(pose[1] - self.robot_settings.workobject[0][1])
+        pose_new.append(pose[2] - self.robot_settings.workobject[0][2])
+        pose_new.append(pose[3] - self.robot_settings.workobject[1][0])
+        pose_new.append(pose[4] - self.robot_settings.workobject[1][1])
+        pose_new.append(pose[5] - self.robot_settings.workobject[1][2])
+        return pose_new
 
     def get_target_q(self):
         """ Gets the Joints angles for the targeted position.
