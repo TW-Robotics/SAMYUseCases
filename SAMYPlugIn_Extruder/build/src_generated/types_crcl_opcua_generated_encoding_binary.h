@@ -1,13 +1,16 @@
 /* Generated from CRCL.Types.bsd with script /usr/local/share/open62541/tools/generate_datatypes.py
- * on host felix-FHTW by user felix at 2021-01-20 01:39:09 */
+ * on host felix-FHTW by user felix at 2021-02-02 08:42:24 */
+
 #ifndef TYPES_CRCL_OPCUA_GENERATED_ENCODING_BINARY_H_
 #define TYPES_CRCL_OPCUA_GENERATED_ENCODING_BINARY_H_
+
 #ifdef UA_ENABLE_AMALGAMATION
 # include "open62541.h"
 #else
 # include "ua_types_encoding_binary.h"
 # include "types_crcl_opcua_generated.h"
 #endif
+
 
 
 /* CRCL_PositiveDecimalDataType */

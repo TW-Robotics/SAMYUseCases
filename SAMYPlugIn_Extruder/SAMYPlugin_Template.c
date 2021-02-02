@@ -32,3 +32,15 @@ bool executeSetTransSpeedCommand(const UA_SetTransSpeedDataType* const transSpee
     //return extruder->setSpeed(transSpeed->transSpeed); // Is a UA_Extansion Object, need a double
     return true;
 }
+
+bool executeInitCanonCommand(const UA_InitCanonDataType* const initCanon, Robot* robot){
+    return true;
+}
+
+bool executeEndCanonCommand(const UA_EndCanonDataType* const endCanon, Robot* robot){
+    return true;
+}
+
+bool executeSetEndEffectorCommand(const UA_SetEndEffectorDataType* const setEndEffector, Robot* robot){
+    return true;
+}

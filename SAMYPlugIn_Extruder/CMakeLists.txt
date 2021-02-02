@@ -19,7 +19,7 @@ set(CPP_COMPILATION ON)
 #cmake_dependent_option(SET_CPP_STANDARD "Allows setting a specific CPP standard. Default standard is C++98" OFF "CPP_COMPILATION" OFF)
 set(CPP_STANDARD 11)
 set(CPP_EXTENSIONS "Uses compiler-specific extensions to the CPP standard" OFF)
-set(ROBOT_CODE_PYTHON "Set the Programming lanugage used for the robot specific code to be Python. By default the robot specific code is assumed to be C/C++. If this flag is set, C++ compiler will be used." OFF)
+option(ROBOT_CODE_PYTHON "Set the Programming lanugage used for the robot specific code to be Python. By default the robot specific code is assumed to be C/C++. If this flag is set, C++ compiler will be used." OFF)
 
 if(CPP_COMPILATION OR ROBOT_CODE_PYTHON)
 	message(STATUS "C++ Compiler set.")
@@ -43,6 +43,7 @@ endif()
 
 
 if(ROBOT_CODE_PYTHON)
+    message(STATUS "Compiling Python version")
     add_compile_definitions(USE_PYTHON)
     find_package(Python 3 COMPONENTS Interpreter Development REQUIRED) #3.8.2
     find_package(Boost COMPONENTS python REQUIRED)
@@ -96,7 +97,7 @@ add_executable(${PROJECT_NAME}
 		"./Template_internals/Communication/SAMYRobot.c"
                 "./Robot/Robot.c"
 		"./SAMYPlugin_Template.c"
-		"main.c"
+                "main_Test_Unions_Local.cpp"
 		)
 
 

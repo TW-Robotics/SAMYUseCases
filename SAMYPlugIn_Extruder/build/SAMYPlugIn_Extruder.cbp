@@ -5,7 +5,7 @@
 		<Option title="SAMYPlugIn_Extruder"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Boost-1.71.0\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_headers-1.71.0\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_python-1.71.0\;CMake Files\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\open62541\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\open62541\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build"/>
@@ -65,12 +65,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DUSE_CPP"/>
-					<Add option="-DUSE_PYTHON"/>
 					<Add option="-DUA_ARCHITECTURE_POSIX"/>
-					<Add option="-DBOOST_PYTHON_DYN_LINK"/>
-					<Add option="-DBOOST_ALL_NO_LIB"/>
-					<Add directory="/usr/include/python3.8"/>
-					<Add directory="/usr/include/boost"/>
 					<Add directory="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/src_generated"/>
 					<Add directory="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder"/>
 					<Add directory="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/Template_internals/OPCUA_CRCL/pubsub"/>
@@ -103,12 +98,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DUSE_CPP"/>
-					<Add option="-DUSE_PYTHON"/>
 					<Add option="-DUA_ARCHITECTURE_POSIX"/>
-					<Add option="-DBOOST_PYTHON_DYN_LINK"/>
-					<Add option="-DBOOST_ALL_NO_LIB"/>
-					<Add directory="/usr/include/python3.8"/>
-					<Add directory="/usr/include/boost"/>
 					<Add directory="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/src_generated"/>
 					<Add directory="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder"/>
 					<Add directory="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/Template_internals/OPCUA_CRCL/pubsub"/>
@@ -180,38 +170,11 @@
 		<Unit filename="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/src_generated/types_crcl_opcua_generated.h">
 			<Option target="SAMYPlugIn_Extruder"/>
 		</Unit>
-		<Unit filename="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/main.c">
+		<Unit filename="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/main_Test_Unions_Local.cpp">
 			<Option target="SAMYPlugIn_Extruder"/>
 		</Unit>
 		<Unit filename="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
-		</Unit>
-		<Unit filename="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/../../../../../../usr/lib/x86_64-linux-gnu/cmake/BoostDetectToolset-1.71.0.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\"/>
-		</Unit>
-		<Unit filename="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Boost-1.71.0\"/>
-		</Unit>
-		<Unit filename="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/../../../../../../usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\Boost-1.71.0\"/>
-		</Unit>
-		<Unit filename="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/../../../../../../usr/lib/x86_64-linux-gnu/cmake/boost_headers-1.71.0/boost_headers-config-version.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_headers-1.71.0\"/>
-		</Unit>
-		<Unit filename="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/../../../../../../usr/lib/x86_64-linux-gnu/cmake/boost_headers-1.71.0/boost_headers-config.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_headers-1.71.0\"/>
-		</Unit>
-		<Unit filename="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/../../../../../../usr/lib/x86_64-linux-gnu/cmake/boost_python-1.71.0/boost_python-config-version.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_python-1.71.0\"/>
-		</Unit>
-		<Unit filename="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/../../../../../../usr/lib/x86_64-linux-gnu/cmake/boost_python-1.71.0/boost_python-config.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_python-1.71.0\"/>
-		</Unit>
-		<Unit filename="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/../../../../../../usr/lib/x86_64-linux-gnu/cmake/boost_python-1.71.0/libboost_python-variant-shared-py3.8.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_python-1.71.0\"/>
-		</Unit>
-		<Unit filename="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/../../../../../../usr/lib/x86_64-linux-gnu/cmake/boost_python-1.71.0/libboost_python-variant-static-py3.8.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\boost_python-1.71.0\"/>
 		</Unit>
 		<Unit filename="/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/../../../../../../usr/local/lib/cmake/open62541/open62541Config.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\lib\cmake\open62541\"/>

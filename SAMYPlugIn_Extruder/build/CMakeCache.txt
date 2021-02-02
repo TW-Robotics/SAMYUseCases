@@ -266,6 +266,11 @@ Python_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libpython3.8.so
 //No help, variable specified on the command line.
 QT_QMAKE_EXECUTABLE:STRING=
 
+//Set the Programming lanugage used for the robot specific code
+// to be Python. By default the robot specific code is assumed
+// to be C/C++. If this flag is set, C++ compiler will be used.
+ROBOT_CODE_PYTHON:BOOL=OFF
+
 //Value Computed by CMake
 SAMYPlugIn_Base_BINARY_DIR:STATIC=/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build
 
@@ -486,15 +491,11 @@ UA_NODESET_CRCL_OPCUA_TARGET:INTERNAL=pref-ns-crcl_opcua
 UA_TYPES_CRCL_OPCUA_HEADERS:INTERNAL=/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/src_generated//types_crcl_opcua_generated.h;/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/src_generated//types_crcl_opcua_generated_handling.h;/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/src_generated//types_crcl_opcua_generated_encoding_binary.h
 //types_crcl_opcua source files
 UA_TYPES_CRCL_OPCUA_SOURCES:INTERNAL=/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/src_generated//types_crcl_opcua_generated.c
-//ADVANCED property for variable: _Python_DEVELOPMENT_SIGNATURE
-_Python_DEVELOPMENT_SIGNATURE-ADVANCED:INTERNAL=1
 _Python_DEVELOPMENT_SIGNATURE:INTERNAL=4a4167209e8a167eff1f1b37da22ba0f
 //ADVANCED property for variable: _Python_EXECUTABLE
 _Python_EXECUTABLE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: _Python_INCLUDE_DIR
 _Python_INCLUDE_DIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: _Python_INTERPRETER_SIGNATURE
-_Python_INTERPRETER_SIGNATURE-ADVANCED:INTERNAL=1
 _Python_INTERPRETER_SIGNATURE:INTERNAL=60fbcba4d3ec42cb22d9b25de2c7c03a
 //ADVANCED property for variable: _Python_LIBRARY_RELEASE
 _Python_LIBRARY_RELEASE-ADVANCED:INTERNAL=1

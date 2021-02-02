@@ -53,8 +53,9 @@ Robot::Robot():
 {
     // Start Serial connection with the arduino. TODO error handling
     serial.set_option(boost::asio::serial_port_base::baud_rate(boud_rate));
+    printf("Waiting for Arduino to Boot");
     usleep(3000000); // wait for the arduino to boot. 3s
-    std::cout << "Connected to Arduino" << std::endl;
+    printf("Connected to Arduino");
 }
 
 void Robot::sendString()

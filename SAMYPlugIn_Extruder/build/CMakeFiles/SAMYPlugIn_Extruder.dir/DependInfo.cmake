@@ -9,7 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/Template_internals/Communication/Publisher.c" "/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Communication/Publisher.c.o"
   "/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/Template_internals/Communication/SAMYRobot.c" "/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Communication/SAMYRobot.c.o"
   "/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/Template_internals/Communication/Subscriber.c" "/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Communication/Subscriber.c.o"
-  "/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/main.c" "/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/CMakeFiles/SAMYPlugIn_Extruder.dir/main.c.o"
+  "/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/main_Test_Unions_Local.cpp" "/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.o"
   "/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/src_generated/namespace_crcl_opcua_generated.c" "/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/CMakeFiles/SAMYPlugIn_Extruder.dir/src_generated/namespace_crcl_opcua_generated.c.o"
   "/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/src_generated/types_crcl_opcua_generated.c" "/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/CMakeFiles/SAMYPlugIn_Extruder.dir/src_generated/types_crcl_opcua_generated.c.o"
   )
@@ -17,17 +17,12 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
-  "BOOST_ALL_NO_LIB"
-  "BOOST_PYTHON_DYN_LINK"
   "UA_ARCHITECTURE_POSIX"
   "USE_CPP"
-  "USE_PYTHON"
   )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/usr/include/python3.8"
-  "/usr/include/boost"
   "src_generated"
   "../"
   "../Template_internals/OPCUA_CRCL/pubsub"

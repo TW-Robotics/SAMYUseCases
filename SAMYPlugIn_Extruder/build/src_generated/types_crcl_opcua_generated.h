@@ -1,6 +1,8 @@
-/* Generated from CRCL.Types.bsd with script /usr/local/share/open62541/tools/generate_datatypes.py * on host felix-FHTW by user felix at 2021-01-20 01:39:09 */
+/* Generated from CRCL.Types.bsd with script /usr/local/share/open62541/tools/generate_datatypes.py * on host felix-FHTW by user felix at 2021-02-02 08:42:24 */
+
 #ifndef TYPES_CRCL_OPCUA_GENERATED_H_
 #define TYPES_CRCL_OPCUA_GENERATED_H_
+
 #ifdef UA_ENABLE_AMALGAMATION
 #include "open62541.h"
 #else
@@ -8,7 +10,9 @@
 #include <open62541/types_generated.h>
 
 #endif
+
 _UA_BEGIN_DECLS
+
 
 /**
  * Every type is assigned an index in an array containing the type descriptions.
@@ -1484,5 +1488,7 @@ typedef struct {
 
 #define UA_TYPES_CRCL_OPCUA_SAMYROBOTDATATYPE 96
 
+
 _UA_END_DECLS
+
 #endif /* TYPES_CRCL_OPCUA_GENERATED_H_ */

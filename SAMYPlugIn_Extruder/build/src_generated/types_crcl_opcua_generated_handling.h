@@ -1,9 +1,13 @@
 /* Generated from CRCL.Types.bsd with script /usr/local/share/open62541/tools/generate_datatypes.py
- * on host felix-FHTW by user felix at 2021-01-20 01:39:09 */
+ * on host felix-FHTW by user felix at 2021-02-02 08:42:24 */
+
 #ifndef TYPES_CRCL_OPCUA_GENERATED_HANDLING_H_
 #define TYPES_CRCL_OPCUA_GENERATED_HANDLING_H_
+
 #include "types_crcl_opcua_generated.h"
+
 _UA_BEGIN_DECLS
+
 #if defined(__GNUC__) && __GNUC__ >= 4 && __GNUC_MINOR__ >= 6
 # pragma GCC diagnostic push
 # pragma GCC diagnostic ignored "-Wmissing-field-initializers"
@@ -3021,5 +3025,7 @@ UA_SAMYRobotDataType_delete(UA_SAMYRobotDataType *p) {
 #if defined(__GNUC__) && __GNUC__ >= 4 && __GNUC_MINOR__ >= 6
 # pragma GCC diagnostic pop
 #endif
+
 _UA_END_DECLS
+
 #endif /* TYPES_CRCL_OPCUA_GENERATED_HANDLING_H_ */

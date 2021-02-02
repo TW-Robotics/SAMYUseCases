@@ -297,32 +297,32 @@ Template_internals/Communication/Subscriber.c.s:
 	$(MAKE) -f CMakeFiles/SAMYPlugIn_Extruder.dir/build.make CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Communication/Subscriber.c.s
 .PHONY : Template_internals/Communication/Subscriber.c.s
 
-main.o: main.c.o
+main_Test_Unions_Local.o: main_Test_Unions_Local.cpp.o
 
-.PHONY : main.o
+.PHONY : main_Test_Unions_Local.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) -f CMakeFiles/SAMYPlugIn_Extruder.dir/build.make CMakeFiles/SAMYPlugIn_Extruder.dir/main.c.o
-.PHONY : main.c.o
+main_Test_Unions_Local.cpp.o:
+	$(MAKE) -f CMakeFiles/SAMYPlugIn_Extruder.dir/build.make CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.o
+.PHONY : main_Test_Unions_Local.cpp.o
 
-main.i: main.c.i
+main_Test_Unions_Local.i: main_Test_Unions_Local.cpp.i
 
-.PHONY : main.i
+.PHONY : main_Test_Unions_Local.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) -f CMakeFiles/SAMYPlugIn_Extruder.dir/build.make CMakeFiles/SAMYPlugIn_Extruder.dir/main.c.i
-.PHONY : main.c.i
+main_Test_Unions_Local.cpp.i:
+	$(MAKE) -f CMakeFiles/SAMYPlugIn_Extruder.dir/build.make CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.i
+.PHONY : main_Test_Unions_Local.cpp.i
 
-main.s: main.c.s
+main_Test_Unions_Local.s: main_Test_Unions_Local.cpp.s
 
-.PHONY : main.s
+.PHONY : main_Test_Unions_Local.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) -f CMakeFiles/SAMYPlugIn_Extruder.dir/build.make CMakeFiles/SAMYPlugIn_Extruder.dir/main.c.s
-.PHONY : main.c.s
+main_Test_Unions_Local.cpp.s:
+	$(MAKE) -f CMakeFiles/SAMYPlugIn_Extruder.dir/build.make CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.s
+.PHONY : main_Test_Unions_Local.cpp.s
 
 src_generated/namespace_crcl_opcua_generated.o: src_generated/namespace_crcl_opcua_generated.c.o
 
@@ -405,9 +405,9 @@ help:
 	@echo "... Template_internals/Communication/Subscriber.o"
 	@echo "... Template_internals/Communication/Subscriber.i"
 	@echo "... Template_internals/Communication/Subscriber.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... main_Test_Unions_Local.o"
+	@echo "... main_Test_Unions_Local.i"
+	@echo "... main_Test_Unions_Local.s"
 	@echo "... src_generated/namespace_crcl_opcua_generated.o"
 	@echo "... src_generated/namespace_crcl_opcua_generated.i"
 	@echo "... src_generated/namespace_crcl_opcua_generated.s"

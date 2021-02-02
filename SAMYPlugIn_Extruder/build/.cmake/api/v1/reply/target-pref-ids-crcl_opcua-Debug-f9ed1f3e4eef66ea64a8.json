@@ -5,7 +5,7 @@
 		"commands" : 
 		[
 			"add_custom_target",
-			"ua_generate_datatypes",
+			"ua_generate_nodeid_header",
 			"ua_generate_nodeset_and_datatypes"
 		],
 		"files" : 
@@ -21,25 +21,25 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 78,
+				"line" : 79,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 525,
+				"line" : 539,
 				"parent" : 1
 			},
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 203,
+				"line" : 45,
 				"parent" : 2
 			}
 		]
 	},
-	"id" : "pref-types-crcl_opcua::@6890427a1f51a3e7e1df",
-	"name" : "pref-types-crcl_opcua",
+	"id" : "pref-ids-crcl_opcua::@6890427a1f51a3e7e1df",
+	"name" : "pref-ids-crcl_opcua",
 	"paths" : 
 	{
 		"build" : ".",
@@ -68,19 +68,19 @@
 		{
 			"backtrace" : 3,
 			"isGenerated" : true,
-			"path" : "build/CMakeFiles/pref-types-crcl_opcua",
+			"path" : "build/CMakeFiles/pref-ids-crcl_opcua",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/CMakeFiles/pref-types-crcl_opcua.rule",
+			"path" : "build/CMakeFiles/pref-ids-crcl_opcua.rule",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/src_generated/types_crcl_opcua_generated.c.rule",
+			"path" : "build/src_generated/crcl_opcua_nodeids.h.rule",
 			"sourceGroupIndex" : 1
 		}
 	],

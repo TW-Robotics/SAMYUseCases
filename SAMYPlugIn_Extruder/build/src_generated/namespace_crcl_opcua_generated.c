@@ -15270,9 +15270,11 @@ ns[0] = UA_Server_addNamespace(server, "http://opcfoundation.org/UA/");
 ns[1] = UA_Server_addNamespace(server, "https://crcl.org");
 
 /* Load custom datatype definitions into the server */
+if(UA_TYPES_CRCL_OPCUA_COUNT > 0) {
 customUA_TYPES_CRCL_OPCUA.next = UA_Server_getConfig(server)->customDataTypes;
 UA_Server_getConfig(server)->customDataTypes = &customUA_TYPES_CRCL_OPCUA;
 
+}
 bool dummy = (
 !(retVal = function_namespace_crcl_opcua_generated_0_begin(server, ns))
 && !(retVal = function_namespace_crcl_opcua_generated_1_begin(server, ns))

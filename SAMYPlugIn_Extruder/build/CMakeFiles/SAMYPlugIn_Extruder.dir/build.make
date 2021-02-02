@@ -178,18 +178,18 @@ CMakeFiles/SAMYPlugIn_Extruder.dir/SAMYPlugin_Template.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SAMYPlugIn_Extruder.dir/SAMYPlugin_Template.c.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/SAMYPlugin_Template.c -o CMakeFiles/SAMYPlugIn_Extruder.dir/SAMYPlugin_Template.c.s
 
-CMakeFiles/SAMYPlugIn_Extruder.dir/main.c.o: CMakeFiles/SAMYPlugIn_Extruder.dir/flags.make
-CMakeFiles/SAMYPlugIn_Extruder.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/SAMYPlugIn_Extruder.dir/main.c.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SAMYPlugIn_Extruder.dir/main.c.o -c /home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/main.c
+CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.o: CMakeFiles/SAMYPlugIn_Extruder.dir/flags.make
+CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.o: ../main_Test_Unions_Local.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.o -c /home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/main_Test_Unions_Local.cpp
 
-CMakeFiles/SAMYPlugIn_Extruder.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SAMYPlugIn_Extruder.dir/main.c.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/main.c > CMakeFiles/SAMYPlugIn_Extruder.dir/main.c.i
+CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/main_Test_Unions_Local.cpp > CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.i
 
-CMakeFiles/SAMYPlugIn_Extruder.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SAMYPlugIn_Extruder.dir/main.c.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/main.c -o CMakeFiles/SAMYPlugIn_Extruder.dir/main.c.s
+CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/main_Test_Unions_Local.cpp -o CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.s
 
 # Object files for target SAMYPlugIn_Extruder
 SAMYPlugIn_Extruder_OBJECTS = \
@@ -200,7 +200,7 @@ SAMYPlugIn_Extruder_OBJECTS = \
 "CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Communication/SAMYRobot.c.o" \
 "CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.o" \
 "CMakeFiles/SAMYPlugIn_Extruder.dir/SAMYPlugin_Template.c.o" \
-"CMakeFiles/SAMYPlugIn_Extruder.dir/main.c.o"
+"CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.o"
 
 # External object files for target SAMYPlugIn_Extruder
 SAMYPlugIn_Extruder_EXTERNAL_OBJECTS =
@@ -212,13 +212,9 @@ SAMYPlugIn_Extruder: CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Commu
 SAMYPlugIn_Extruder: CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Communication/SAMYRobot.c.o
 SAMYPlugIn_Extruder: CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.o
 SAMYPlugIn_Extruder: CMakeFiles/SAMYPlugIn_Extruder.dir/SAMYPlugin_Template.c.o
-SAMYPlugIn_Extruder: CMakeFiles/SAMYPlugIn_Extruder.dir/main.c.o
+SAMYPlugIn_Extruder: CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.o
 SAMYPlugIn_Extruder: CMakeFiles/SAMYPlugIn_Extruder.dir/build.make
 SAMYPlugIn_Extruder: /usr/local/lib/libopen62541.a
-SAMYPlugIn_Extruder: /usr/lib/x86_64-linux-gnu/libboost_python38.so.1.71.0
-SAMYPlugIn_Extruder: /usr/lib/x86_64-linux-gnu/libpython3.8.so
-SAMYPlugIn_Extruder: /usr/lib/x86_64-linux-gnu/libboost_python38.so.1.71.0
-SAMYPlugIn_Extruder: /usr/lib/x86_64-linux-gnu/libpython3.8.so
 SAMYPlugIn_Extruder: /usr/lib/x86_64-linux-gnu/libssl.so
 SAMYPlugIn_Extruder: /usr/lib/x86_64-linux-gnu/libcrypto.so
 SAMYPlugIn_Extruder: /usr/lib/x86_64-linux-gnu/libwebsockets.so
