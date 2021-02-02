@@ -1,5 +1,6 @@
 from CRCLLib import crcl
 from TransformLib import transform
+import numpy
 
 
 class RobotUnits():
@@ -36,8 +37,19 @@ def set_trans_accel(robot, transAccel):
     pass
 
 
+def set_workobject(robot, workobject_x, workobject_y, workobject_z,
+                   workobject_xAxis_i, workobject_xAxis_j, workobject_xAxis_k,
+                   workobject_zAxis_i, workobject_zAxis_j, workobject_zAxis_k):
+    xaxis = numpy.array([workobject_xAxis_i, workobject_xAxis_j, workobject_xAxis_k])
+    zaxis = numpy.array([workobject_zAxis_i, workobject_zAxis_j, workobject_zAxis_k])
+
+    q = transform.matrix_to_quaternion(xaxis, zaxis)
+    robot.robot_settings.workobject = ((workobject_x, workobject_y, workobject_z),
+                                       (q[0], q[1], q[2], q[3]))
+
+
 # new version with all datafields as seperate parameters
-def move_to(robot, commandID, moveStraight, endPosition_point_x, endPosition_point_y, endPosition_point_z,
+def moveto(robot, commandID, moveStraight, endPosition_point_x, endPosition_point_y, endPosition_point_z,
            endPosition_xAxis_i, endPosition_xAxis_j, endPosition_xAxis_k,
            endPosition_zAxis_i, endPosition_zAxis_j, endPosition_zAxis_k):
     crcl_point = crcl.PointType(endPosition_point_x, endPosition_point_y, endPosition_point_z)

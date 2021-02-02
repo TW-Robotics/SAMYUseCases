@@ -39,11 +39,12 @@ class RobotSettings:
         self.transSpeed = 0.05
         self.transAccel = 0.2
         self.radius = 0.0
+        self.workobject = ((1090, 0, -70), (1, 0, 0, 0)) # values for printing station
 
 
 class Robot:
     def __init__(self, ipAddress, port_motion=5000, port_logger=5001):
-        self.settings = RobotSettings
+        self.settings = RobotSettings()
         self.delay = .08
 
         self.connect_motion((ipAddress, port_motion))
@@ -55,9 +56,8 @@ class Robot:
         # Setting Tool and workobject for the Print Station
         # This needs to be configured from SAMY in future
         self.set_tool((116.563, 2.09, 113.7, 0.707106781, 0, 0.707106781, 0)) # values for printing station
-        self.set_workobject(((1090, 0, -70), (1, 0, 0, 0))) # values for printing station
+        self.set_workobject(self.settings.workobject)
         self.set_zone(zone_key='z0', point_motion=True)
-
         # self.set_tool()
         # self.set_workobject()
         # self.set_speed()

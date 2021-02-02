@@ -203,6 +203,45 @@ def matrix_to_quaternion(xAxis, zAxis):
         q *= -1
     return q
 
+
+def euler_to_quaternions(yaw, pitch, roll):
+
+    cy = math.cos(yaw * 0.5)
+    sy = math.sin(yaw * 0.5)
+    cp = math.cos(pitch * 0.5)
+    sp = math.sin(pitch * 0.5)
+    cr = math.cos(roll * 0.5)
+    sr = math.sin(roll * 0.5)
+
+    w = cr * cp * cy + sr * sp * sy
+    x = sr * cp * cy - cr * sp * sy
+    y = cr * sp * cy + sr * cp * sy
+    z = cr * cp * sy - sr * sp * cy
+
+    return w, x, y, z
+
+                        #w, x, y, z
+def quaternions_to_euler(r, i, j, k):
+
+    # roll (x-axis rotation)
+    sinr_cosp = 2 * (r * i + j * k)
+    cosr_cosp = 1 - 2 * (i * i + j * j)
+    roll = math.atan2(sinr_cosp, cosr_cosp)
+
+    # pitch (y-axis rotation)
+    sinp = 2 * (r * j - k * i)
+    if abs(sinp) >= 1:
+        pitch = math.copysign(math.pi / 2, sinp) # use 90 degrees if out of range
+    else:
+        pitch = math.asin(sinp)
+
+    # yaw (z-axis rotation)
+    siny_cosp = 2 * (r * k + i * j)
+    cosy_cosp = 1 - 2 * (j * j + k * k)
+    yaw = math.atan2(siny_cosp, cosy_cosp)
+
+    return roll, pitch, yaw
+
     # =========================================================
     #                   Helper functions
     # =========================================================
@@ -226,6 +265,10 @@ def get_pose_euler(waypoint):
     pose[2] = waypoint.Point.Z
 
     return pose
+
+
+def get_pose_matrix():
+    pass
 
 
 def get_pose_quaternion():
