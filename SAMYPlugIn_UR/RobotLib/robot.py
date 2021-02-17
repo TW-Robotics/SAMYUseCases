@@ -17,21 +17,28 @@ import math
 class RobotSettings:
 
     def __init__(self):
-        self.max_speed = 5.0 # m/s
+        self.max_speed = 5.0  # m/s
         self.max_accel = 2.0  # m/s²
         self.max_rot_speed = 3.14
         self.max_rot_accel = 3.14
 
-        self.lengthUnit = "meter"
+        self.lengthUnit = "millimeter"
         self.angleUnit = "radian"
         self.forceUnit = "newton"
         self.rotSpeed = 2.0
         self.rotAccel = 0.3
-        self.transSpeed = 0.05
+        self.transSpeed = 50
         self.transAccel = 0.2
         self.radius = 0.0
-        self.workobject = [[0, 0.4, 0],[math.pi, 0, 0]]
+        self.workobject = [[-200, -200, 0],[math.pi, 0, 0]]  # in m
 
+
+class RobotStatus():
+    def __init__(self, host):
+        self.host = host
+        self.rtde = exchangeData.ExchangeData(self.host)
+        self.robot_settings = RobotSettings()
+        self.scale_linear = 0.001
 
 class Robot(object):
     # This class represents the robot.
@@ -55,12 +62,26 @@ class Robot(object):
         self.dash = dashboard_server.Dashboard(self.host)
 
         self.robot_settings = RobotSettings()
+        self.scale_linear = 0.001
+        self.ok = True
+        self.live_mode = False
+        self.buffer = "def myProg():\n"
 
         self.logger.info("Connected")
 
     def send_command(self, line, command_id):
-        self.real_mon.send(line)
+        if self.live_mode == True:
+            self.real_mon.send(line)
+        else:
+            self.buffer = self.buffer + line
+            # add line to buffer
         #self.send_status(self, command_id)
+
+    def run_buffer(self):
+        # send the buffered commands to the robot
+        self.buffer = self.buffer + "end\n"
+        print(self.buffer)
+        self.real_mon.send(self.buffer)
 
     def send_status(self, command_id):
         Thread(target=self.is_ready, args=(command_id,))
@@ -79,14 +100,18 @@ class Robot(object):
 
     def wait(self):
         # Waits for the robot to finish a command
+        if not self.live_mode:
+            return "READY"
         time.sleep(0.1)  # Wait a bit
-        while 1:
+        while self.ok:
             state = self.get_state()
             if state == "RUNNING": # Check if the robot State is still running
                 time.sleep(0.16) # Wait before checking again
             else:
                 return "READY"
-                # send status to publisher
+            # send status to publisher
+        self.dash.stop_program()
+
         # When robot is not RUNNING anymore the command is finished.
 
     def close(self):
@@ -97,6 +122,16 @@ class Robot(object):
         self.rtde.close()  # Stop the connection to the rtde interface
         self.dash.close()  # Stop the connection to the dashboard interface
         self.real_mon.close()  # Stop the connection to the real mon interface
+
+    def set_mode(self, mode):
+        # Set the operation mode of the Plugin:
+        # live_mode = True: commands get executed as soon as the are recived
+        # live_mode = False: commands get translated than buffered and send
+        # to the robot all at once
+        if mode == 1:
+            self.live_mode = True
+        elif mode == 0:
+            self.live_mode = False
 
     def shutdown(self):
         # close the connection to the robot and turn it off
@@ -118,21 +153,27 @@ class Robot(object):
             - RETRACTING
         """
         runtime_state = self.rtde.get_runtime_state()
+        if not self.live_mode:
+            return "STOPPING"
         return runtime_state
+
+    def set_unit_linear(self, linear):
+        units_l = {"millimeters": 0.001,
+                   "meters": 1.0}
+        self.scale_linear = units_l[linear]
 
     # =========================================================
     #                   Move commands
     # =========================================================
 
     def adjust_pose(self, pose):
-        pose_new = []
-        pose_new.append(pose[0] + self.robot_settings.workobject[0][0])
-        pose_new.append(pose[1] + self.robot_settings.workobject[0][1])
-        pose_new.append(pose[2] + self.robot_settings.workobject[0][2])
-        pose_new.append(pose[3] + self.robot_settings.workobject[1][0])
-        pose_new.append(pose[4] + self.robot_settings.workobject[1][1])
-        pose_new.append(pose[5] + self.robot_settings.workobject[1][2])
-        return pose_new
+        pose[0] = (pose[0] + self.robot_settings.workobject[0][0]) * self.scale_linear
+        pose[1] = (pose[1] + self.robot_settings.workobject[0][1]) * self.scale_linear
+        pose[2] = (pose[2] + self.robot_settings.workobject[0][2]) * self.scale_linear
+        pose[3] = (pose[3] + self.robot_settings.workobject[1][0])
+        pose[4] = (pose[4] + self.robot_settings.workobject[1][1])
+        pose[5] = (pose[5] + self.robot_settings.workobject[1][2])
+        return pose
 
     def movel(self, command_id, pose: list, a, v, r=0):
         # The movel command moves the robot linear to the given pose.
@@ -145,7 +186,8 @@ class Robot(object):
         # adjust pose to workobject
         pose_new = self.adjust_pose(pose)
 
-        line = "movel(p[{},{},{},{},{},{}], a={}, v={}, r={})\n".format(*pose_new, a, v, r)
+        line = "movel(p[{},{},{},{},{},{}], a={}, v={}, r={})\n".format(*pose_new, a,
+                                                                        v*self.scale_linear, r)
         print("sending Movel")
         self.send_command(line, command_id)
 
@@ -297,14 +339,13 @@ class Robot(object):
         """
         pose = self.rtde.get_actual_tcp()
         # adjust pose to workobject
-        pose_new = []
-        pose_new.append(pose[0] - self.robot_settings.workobject[0][0])
-        pose_new.append(pose[1] - self.robot_settings.workobject[0][1])
-        pose_new.append(pose[2] - self.robot_settings.workobject[0][2])
-        pose_new.append(pose[3] - self.robot_settings.workobject[1][0])
-        pose_new.append(pose[4] - self.robot_settings.workobject[1][1])
-        pose_new.append(pose[5] - self.robot_settings.workobject[1][2])
-        return pose_new
+        pose[0] = pose[0] / self.scale_linear - self.robot_settings.workobject[0][0]
+        pose[1] = pose[1] / self.scale_linear - self.robot_settings.workobject[0][1]
+        pose[2] = pose[2] / self.scale_linear - self.robot_settings.workobject[0][2]
+        pose[3] = (pose[3] - self.robot_settings.workobject[1][0])
+        pose[4] = (pose[4] - self.robot_settings.workobject[1][1])
+        pose[5] = (pose[5] - self.robot_settings.workobject[1][2])
+        return pose
 
     def get_target_q(self):
         """ Gets the Joints angles for the targeted position.

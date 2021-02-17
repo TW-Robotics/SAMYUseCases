@@ -12,6 +12,22 @@ class RobotUnits():
         self.accelUnit = "mm/s^2"
 
 
+def stop(robot):
+    robot.stop_robot()
+
+
+def set_mode(robot, command_od, mode):
+    robot.set_mode(mode)
+
+
+def run_buffered_commands(robot):
+    robot.run_buffer()
+
+
+def get_state(robot):
+    return robot.get_state()
+
+
 def set_length_unit(robot, command_id, unit):
     robot.lengthUnit = unit
     # send command status Done
@@ -21,13 +37,15 @@ def set_angle_units(robot, command_id, unit):
     robot.angleUnit = unit
 
 
-def set_endeffector(robot, setting):
+def set_end_effector(robot, command_id, setting):
     if setting:
-        robot.activate_gripper(robot)
+        robot.close_gripper(command_id)
+    else:
+        robot.open_gripper(command_id)
 
 
 def set_trans_speed(robot, transSpeed):
-    pass
+    robot.robot_settings.transSpeed = transSpeed
 
 
 def set_trans_accel(robot, transAccel):
@@ -59,8 +77,8 @@ def moveto(robot, commandID, moveStraight, endPosition_point_x, endPosition_poin
         robot.movel(commandID, pose, robot.robot_settings.transAccel, robot.robot_settings.transSpeed, 0)
     else:
         robot.movej_p(robot, commandID, pose, robot.robot_settings.rotAccel, robot.robot_settings.rotSpeed, 0, 0)
-    robot.wait()
-    print("Command with ID: " + str(commandID) + " is ready.")
+    #robot.wait()
+    #print("Python:   Command with ID: " + str(commandID) + " is ready.")
     return str_pose
 
 # old version with full struck as parameter
