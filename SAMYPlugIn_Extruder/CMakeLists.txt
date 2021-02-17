@@ -95,7 +95,7 @@ add_executable(${PROJECT_NAME}
 		"./Template_internals/Communication/Publisher.c" 
 		"./Template_internals/Communication/Subscriber.c" 
 		"./Template_internals/Communication/SAMYRobot.c"
-                "./Robot/Robot.c"
+                "./Robot/Robot.cpp"
 		"./SAMYPlugin_Template.c"
                 "main_Test_Unions_Local.cpp"
 		)

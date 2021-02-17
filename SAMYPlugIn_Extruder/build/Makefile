@@ -162,32 +162,32 @@ pref-types-crcl_opcua/fast:
 	$(MAKE) -f CMakeFiles/pref-types-crcl_opcua.dir/build.make CMakeFiles/pref-types-crcl_opcua.dir/build
 .PHONY : pref-types-crcl_opcua/fast
 
-Robot/Robot.o: Robot/Robot.c.o
+Robot/Robot.o: Robot/Robot.cpp.o
 
 .PHONY : Robot/Robot.o
 
 # target to build an object file
-Robot/Robot.c.o:
-	$(MAKE) -f CMakeFiles/SAMYPlugIn_Extruder.dir/build.make CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.o
-.PHONY : Robot/Robot.c.o
+Robot/Robot.cpp.o:
+	$(MAKE) -f CMakeFiles/SAMYPlugIn_Extruder.dir/build.make CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.cpp.o
+.PHONY : Robot/Robot.cpp.o
 
-Robot/Robot.i: Robot/Robot.c.i
+Robot/Robot.i: Robot/Robot.cpp.i
 
 .PHONY : Robot/Robot.i
 
 # target to preprocess a source file
-Robot/Robot.c.i:
-	$(MAKE) -f CMakeFiles/SAMYPlugIn_Extruder.dir/build.make CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.i
-.PHONY : Robot/Robot.c.i
+Robot/Robot.cpp.i:
+	$(MAKE) -f CMakeFiles/SAMYPlugIn_Extruder.dir/build.make CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.cpp.i
+.PHONY : Robot/Robot.cpp.i
 
-Robot/Robot.s: Robot/Robot.c.s
+Robot/Robot.s: Robot/Robot.cpp.s
 
 .PHONY : Robot/Robot.s
 
 # target to generate assembly for a file
-Robot/Robot.c.s:
-	$(MAKE) -f CMakeFiles/SAMYPlugIn_Extruder.dir/build.make CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.s
-.PHONY : Robot/Robot.c.s
+Robot/Robot.cpp.s:
+	$(MAKE) -f CMakeFiles/SAMYPlugIn_Extruder.dir/build.make CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.cpp.s
+.PHONY : Robot/Robot.cpp.s
 
 SAMYPlugin_Template.o: SAMYPlugin_Template.c.o
 

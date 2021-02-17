@@ -152,18 +152,18 @@ CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Communication/SAMYRobot.c.
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Communication/SAMYRobot.c.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/Template_internals/Communication/SAMYRobot.c -o CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Communication/SAMYRobot.c.s
 
-CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.o: CMakeFiles/SAMYPlugIn_Extruder.dir/flags.make
-CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.o: ../Robot/Robot.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.o -c /home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/Robot/Robot.c
+CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.cpp.o: CMakeFiles/SAMYPlugIn_Extruder.dir/flags.make
+CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.cpp.o: ../Robot/Robot.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.cpp.o -c /home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/Robot/Robot.cpp
 
-CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/Robot/Robot.c > CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.i
+CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/Robot/Robot.cpp > CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.cpp.i
 
-CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/Robot/Robot.c -o CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.s
+CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/Robot/Robot.cpp -o CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.cpp.s
 
 CMakeFiles/SAMYPlugIn_Extruder.dir/SAMYPlugin_Template.c.o: CMakeFiles/SAMYPlugIn_Extruder.dir/flags.make
 CMakeFiles/SAMYPlugIn_Extruder.dir/SAMYPlugin_Template.c.o: ../SAMYPlugin_Template.c
@@ -198,7 +198,7 @@ SAMYPlugIn_Extruder_OBJECTS = \
 "CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Communication/Publisher.c.o" \
 "CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Communication/Subscriber.c.o" \
 "CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Communication/SAMYRobot.c.o" \
-"CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.o" \
+"CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.cpp.o" \
 "CMakeFiles/SAMYPlugIn_Extruder.dir/SAMYPlugin_Template.c.o" \
 "CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.o"
 
@@ -210,7 +210,7 @@ SAMYPlugIn_Extruder: CMakeFiles/SAMYPlugIn_Extruder.dir/src_generated/types_crcl
 SAMYPlugIn_Extruder: CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Communication/Publisher.c.o
 SAMYPlugIn_Extruder: CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Communication/Subscriber.c.o
 SAMYPlugIn_Extruder: CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Communication/SAMYRobot.c.o
-SAMYPlugIn_Extruder: CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.o
+SAMYPlugIn_Extruder: CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.cpp.o
 SAMYPlugIn_Extruder: CMakeFiles/SAMYPlugIn_Extruder.dir/SAMYPlugin_Template.c.o
 SAMYPlugIn_Extruder: CMakeFiles/SAMYPlugIn_Extruder.dir/main_Test_Unions_Local.cpp.o
 SAMYPlugIn_Extruder: CMakeFiles/SAMYPlugIn_Extruder.dir/build.make

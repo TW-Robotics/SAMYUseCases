@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.c.o"
+  "CMakeFiles/SAMYPlugIn_Extruder.dir/Robot/Robot.cpp.o"
   "CMakeFiles/SAMYPlugIn_Extruder.dir/SAMYPlugin_Template.c.o"
   "CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Communication/Publisher.c.o"
   "CMakeFiles/SAMYPlugIn_Extruder.dir/Template_internals/Communication/SAMYRobot.c.o"

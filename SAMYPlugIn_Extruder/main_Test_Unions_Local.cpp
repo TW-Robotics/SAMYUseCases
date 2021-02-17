@@ -54,23 +54,23 @@ static void addFiveCRCLCommands( UA_Server* server ) {
     UA_CRCL_VectorDataType vectX;
     vectX.name =  UA_STRING("PoseVectorX");
     vectX.id = 9009;
-    vectX.i = 9.999;
-    vectX.j = 8.888;
-    vectX.k = 7.7777;
+    vectX.i = 1;
+    vectX.j = 0;
+    vectX.k = 0;
 
     UA_CRCL_VectorDataType vectZ;
     vectZ.name =  UA_STRING("PoseVectorZ");
     vectZ.id = 2468;
-    vectZ.i = 1.3579;
-    vectZ.j = 9.7531;
-    vectZ.k = -5.555;
+    vectX.i = 0;
+    vectX.j = 0;
+    vectX.k = 1;
 
    UA_CRCL_PointDataType point;
     point.name =  UA_STRING("Point");
     point.id = 19191;
-    point.x = 4.6464;
-    point.y = 3.7373;
-    point.z = -2.8383;
+    point.x = 4.5;
+    point.y = 0;
+    point.z = 0;
 
     UA_CRCL_PoseDataType pose;
     pose.name =  UA_STRING("PosePose");
