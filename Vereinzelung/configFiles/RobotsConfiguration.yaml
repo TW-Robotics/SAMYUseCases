@@ -1,0 +1,66 @@
+Robots:
+  - Robot:
+      Name: MqttPlugin
+      ID: 12342
+      Address: "mqtt"
+      IOLinkAddress: "10.0.0.25"
+      MQTTPort: 2222
+      Sensors:
+        # - Sensor:
+        #   Name: InductiveSensor
+        #   Port: 6
+        #   Type: DI
+        - Sensor:
+          Name: LightBarrierStorage1
+          Port: 3
+          Type: DI
+        - Sensor:
+          Name: LightBarrierStorage2
+          Port: 6
+          Type: DI
+        # - Sensor:
+        #   Name: DistanceSensor
+        #   Port: 3
+        #   Type: IO-Link
+      OPCUARoboticsFile: MqttPlugin.xml
+      Skills:
+        - CheckStorage
+        - ZylinderOff
+        - ZylinderOn
+  - Robot:
+      Name: OpenMan
+      ID: 12345
+      Address: "10.0.0.100"
+      OPCUARoboticsFile: OpenMan.xml
+      Skills:
+        - PickAndPlace
+        - Pick
+        - Place
+        - SimpleMove
+        - GetCurrentPose
+        - SetGripper
+  - Robot:
+      Name: UR5Plugin
+      ID: 12344
+      Address: "10.0.0.31"
+      OPCUARoboticsFile: Ur5.xml
+      Skills:
+        - PickAndPlace
+        - Pick
+        - Place
+        - SimpleMove
+        - SetGripper
+      Workobject:
+        - -0.764
+        - 0.144
+        - 0.015
+        - 0.0
+        - 0.0
+        - -1.5707
+  - Robot:
+      Name: Camera
+      ID: 45
+      Address: "0.0.0.0"
+      OPCUARoboticsFile: Camera.xml
+      Skills:
+        - GetPose

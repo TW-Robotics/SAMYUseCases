@@ -1,0 +1,9 @@
+InformationSources:
+  - InformationSource:
+      InformationSourceName: "CameraPose"
+      DataTypes:
+        - MoveToParametersSetDataType
+  - InformationSource:
+      InformationSourceName: "CameraReady"
+      DataTypes:
+        - Boolean

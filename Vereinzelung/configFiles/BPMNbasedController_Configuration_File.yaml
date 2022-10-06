@@ -1,0 +1,34 @@
+States:
+  UR5Plugin_Ready:
+    key: "Robot_UR5Plugin_CurrentState"
+    type: "String"
+    values:
+      - Ready
+  OpenMan_Ready:
+    key: "Robot_OpenMan_CurrentState"
+    type: "String"
+    values:
+      - Ready
+  MqttPlugin_Ready:
+    key: "Robot_MqttPlugin_CurrentState"
+    type: "String"
+    values:
+      - Ready
+  Camera_Ready:
+    key: "Robot_Camera_CurrentState"
+    type: "String"
+    values:
+      - Ready
+InformationSources:
+  Storage1:
+    key: InformationSource_LightBarrierStorage1_0
+    type: Boolean
+  Storage2:
+    key: InformationSource_LightBarrierStorage2_0
+    type: Boolean
+  YellowPartDetected:
+    key: InformationSource_YellowPartDetected_0
+    type: Boolean
+  GreyPartDetected:
+    key: InformationSource_GreyPartDetected_0
+    type: Boolean

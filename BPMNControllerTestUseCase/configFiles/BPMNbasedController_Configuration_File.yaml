@@ -1,0 +1,7 @@
+States:
+  RobotUR5_Ready:
+    key: "Robot_RobotUR5_CurrentState"
+    type: "String"
+    values:
+      - Ready
+

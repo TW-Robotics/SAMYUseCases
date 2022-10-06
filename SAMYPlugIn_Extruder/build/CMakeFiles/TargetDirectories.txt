@@ -1,6 +1,0 @@
-/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/CMakeFiles/edit_cache.dir
-/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/CMakeFiles/pref-ns-crcl_opcua.dir
-/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/CMakeFiles/rebuild_cache.dir
-/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/CMakeFiles/pref-ids-crcl_opcua.dir
-/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/CMakeFiles/SAMYPlugIn_Extruder.dir
-/home/felix/Documents/git/SAMYUseCase-PrintingStation/SAMYPlugIn_Extruder/build/CMakeFiles/pref-types-crcl_opcua.dir

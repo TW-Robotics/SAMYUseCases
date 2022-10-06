@@ -1,0 +1,54 @@
+FundamentalSkills: # Fundamental skills are only composed by CRCL commands
+      - FundamentalSkill:
+              SkillName: CheckStorage
+              CRCLCommands:
+                    - GetStatus # Updates the information sources in the SamyCore for all sensors
+      - FundamentalSkill:
+              SkillName: GetDistance
+              CRCLCommands:
+                    - GetStatus # Updates the information sources in the SamyCore for all sensors
+      - FundamentalSkill:
+              SkillName: ZylinderOn
+              CRCLCommands:
+                    - ActuateJoints # Actuates the pneumatic cylinders (joint number=select cylinder JointPosition=0->deactivated !=0->activated)
+      - FundamentalSkill:
+              SkillName: ZylinderOff
+              CRCLCommands:
+                    - ActuateJoints # Actuates the pneumatic cylinders (joint number=select cylinder JointPosition=0->deactivated !=0->activated)
+      - FundamentalSkill:
+              SkillName: Pick
+              CRCLCommands:
+                    - SetEndEffector # Open the gripper
+                    - MoveTo # Move above pick position
+                    - MoveTo # Move to pick position
+                    - SetEndEffector # Close gripper
+                    - MoveTo # Move above pick position
+      - FundamentalSkill:
+              SkillName: Place
+              CRCLCommands:
+                    - MoveTo # Move above place position
+                    - MoveTo # Move to place position
+                    - SetEndEffector # Open the gripper
+                    - MoveTo # Move above place position
+      - FundamentalSkill:
+              SkillName: SimpleMove
+              CRCLCommands:
+                    - MoveTo
+      - FundamentalSkill:
+              SkillName: GetCurrentPose
+              CRCLCommands:
+                    - GetStatus
+      - FundamentalSkill:
+              SkillName: SetGripper
+              CRCLCommands:
+                    - SetEndEffector
+      - FundamentalSkill:
+              SkillName: GetPose
+              CRCLCommands:
+                    - GetStatus
+ComplexSkills: # Complex Skills can use previously defined fundamental and complex skills
+      - ComplexSkill:
+              SkillName: PickAndPlace
+              CRCLCommands_And_PreviousSkills:
+                    - Pick
+                    - Place
