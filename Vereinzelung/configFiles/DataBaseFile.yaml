@@ -176,7 +176,7 @@ DataBase:
         k: -1
   - !!python/object:CRCL_DataTypes.MoveToParametersSetDataType
     RealTimeParameter: false
-    Name: AbovePlace
+    Name: AboveCamera
     MoveStraight: false
     EndPosition: !!python/object:CRCL_DataTypes.CRCL_PoseDataType
       id: 0
