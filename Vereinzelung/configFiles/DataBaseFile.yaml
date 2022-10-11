@@ -186,7 +186,32 @@ DataBase:
         name: null
         x: 0
         y: 0.25
-        z: 0.16
+        z: 0.20
+      xAxis: !!python/object:CRCL_DataTypes.CRCL_VectorDataType
+        id: 0
+        name: null
+        i: 0.7
+        j: -0.3
+        k: 0
+      zAxis: !!python/object:CRCL_DataTypes.CRCL_VectorDataType
+        id: 0
+        name: null
+        i: 0
+        j: 0
+        k: -1
+  - !!python/object:CRCL_DataTypes.MoveToParametersSetDataType
+    RealTimeParameter: false
+    Name: PlaceCamera
+    MoveStraight: false
+    EndPosition: !!python/object:CRCL_DataTypes.CRCL_PoseDataType
+      id: 0
+      name: null
+      point: !!python/object:CRCL_DataTypes.CRCL_PointDataType
+        id: 0
+        name: null
+        x: 0
+        y: 0.25
+        z: 0.05
       xAxis: !!python/object:CRCL_DataTypes.CRCL_VectorDataType
         id: 0
         name: null
