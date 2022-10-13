@@ -41,14 +41,14 @@
     <incoming>trans_id_4</incoming>
     <outgoing>trans_id_14</outgoing>
     <param key='1' type='data' >OpenGripperUR5</param>
-    <param key='2' type='data' >AboveStationBottom</param>
-    <param key='3' type='data' >StationBottom</param>
+    <param key='2' type='data' >AboveCamera</param>
+    <param key='3' type='info' >CameraPose</param>
     <param key='4' type='data' >CloseGripperUR5</param>
-    <param key='5' type='data' >AboveStationBottom</param>
-    <param key='6' type='data' >AbovePlace</param>
-    <param key='7' type='data' >PlaceBottom</param>
+    <param key='5' type='data' >AboveCamera</param>
+    <param key='6' type='data' >UR5-Home</param>
+    <param key='7' type='data' >RefillGrey</param>
     <param key='8' type='data' >OpenGripperUR5</param>
-    <param key='9' type='data' >AbovePlace</param>
+    <param key='9' type='data' >UR5-Home</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Transition id="trans_id_4" sourceRef="place_id_5" targetRef="place_id_6">
     <condition>1</condition>
@@ -88,10 +88,10 @@
   <SamyBpmnModel:Process id="place_id_11" name="OpenMan:Place">
     <incoming>trans_id_48</incoming>
     <outgoing>trans_id_15</outgoing>
-    <param key='1' type='data' >AboveCamera</param>
-    <param key='2' type='data' >PlaceCamera</param>
+    <param key='1' type='data' >OpenMan-MidPoseBack</param>
+    <param key='2' type='data' >RefillYellow</param>
     <param key='3' type='data' >OpenGripper</param>
-    <param key='4' type='data' >AboveCamera</param>
+    <param key='4' type='data' >OpenMan-MidPoseBack</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Process id="place_id_12" name="RobotUR5:SimpleMove">
     <incoming>trans_id_14</incoming>
@@ -218,30 +218,41 @@
     <param key='1' type='data' >UR5-Home</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Transition id="trans_id_36" sourceRef="place_id_28" targetRef="place_id_29"/>
-  <SamyBpmnModel:Process id="place_id_30" name="OpenMan:SimpleMove19">
+  <SamyBpmnModel:Process id="place_id_30" name="OpenMan:SimpleMove">
     <incoming>trans_id_37</incoming>
     <outgoing>trans_id_38</outgoing>
-    <param key='1' type='data' >OpenMan-MidPose-Back</param>
+    <param key='1' type='data' >OpenMan-Home</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Transition id="trans_id_37" sourceRef="place_id_29" targetRef="place_id_30"/>
-  <SamyBpmnModel:Process id="place_id_31" name="OpenMan:Pick20">
+  <SamyBpmnModel:Process id="place_id_31" name="OpenMan:Pick">
     <incoming>trans_id_38</incoming>
     <outgoing>trans_id_39</outgoing>
+    <param key='1' type='data' >OpenGripper</param>
+    <param key='2' type='data' >AboveStationTop</param>
+    <param key='3' type='data' >StationTop</param>
+    <param key='4' type='data' >CloseGripper</param>
+    <param key='5' type='data' >AboveStationTop</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Transition id="trans_id_38" sourceRef="place_id_30" targetRef="place_id_31"/>
-  <SamyBpmnModel:Process id="place_id_32" name="OpenMan:SimpleMove21">
+  <SamyBpmnModel:Process id="place_id_32" name="OpenMan:SimpleMove">
     <incoming>trans_id_39</incoming>
     <outgoing>trans_id_40</outgoing>
+    <param key='1' type='data' >OpenMan-MidPose</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Transition id="trans_id_39" sourceRef="place_id_31" targetRef="place_id_32"/>
-  <SamyBpmnModel:Process id="place_id_33" name="OpenMan:Place22">
+  <SamyBpmnModel:Process id="place_id_33" name="OpenMan:Place">
     <incoming>trans_id_40</incoming>
     <outgoing>trans_id_41</outgoing>
+    <param key='1' type='data' >AboveCamera</param>
+    <param key='2' type='data' >PlaceCamera</param>
+    <param key='3' type='data' >OpenGripper</param>
+    <param key='4' type='data' >AboveCamera</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Transition id="trans_id_40" sourceRef="place_id_32" targetRef="place_id_33"/>
-  <SamyBpmnModel:Process id="place_id_34" name="OpenMan:SimpleMove23">
+  <SamyBpmnModel:Process id="place_id_34" name="OpenMan:SimpleMove">
     <incoming>trans_id_41</incoming>
     <outgoing>trans_id_43</outgoing>
+    <param key='4' type='data' >OpenMan-Home</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Transition id="trans_id_41" sourceRef="place_id_33" targetRef="place_id_34"/>
   <SamyBpmnModel:VariableManipulationTable id="place_id_35" name="Name">
@@ -272,9 +283,10 @@
   <SamyBpmnModel:Transition id="trans_id_46" sourceRef="place_id_36" targetRef="place_id_2">
     <condition>3</condition>
   </SamyBpmnModel:Transition>
-  <SamyBpmnModel:Process id="place_id_37" name="OpenMan:SimpleMove8A">
+  <SamyBpmnModel:Process id="place_id_37" name="OpenMan:SimpleMove">
     <incoming>trans_id_47</incoming>
     <outgoing>trans_id_48</outgoing>
+    <param key='4' type='data' >OpenMan-MidPoseBack</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Transition id="trans_id_47" sourceRef="place_id_10" targetRef="place_id_37"/>
   <SamyBpmnModel:Transition id="trans_id_48" sourceRef="place_id_37" targetRef="place_id_11"/>

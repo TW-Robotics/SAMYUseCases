@@ -51,6 +51,31 @@ DataBase:
         k: 1
   - !!python/object:CRCL_DataTypes.MoveToParametersSetDataType
     RealTimeParameter: false
+    Name: OpenMan-MidPoseBack
+    MoveStraight: false
+    EndPosition: !!python/object:CRCL_DataTypes.CRCL_PoseDataType
+      id: 0
+      name: null
+      point: !!python/object:CRCL_DataTypes.CRCL_PointDataType
+        id: 0
+        name: null
+        x: 0.20
+        y: -0.15
+        z: 0.2
+      xAxis: !!python/object:CRCL_DataTypes.CRCL_VectorDataType
+        id: 0
+        name: null
+        i: 1
+        j: 0
+        k: 0
+      zAxis: !!python/object:CRCL_DataTypes.CRCL_VectorDataType
+        id: 0
+        name: null
+        i: 0
+        j: 0
+        k: 1
+  - !!python/object:CRCL_DataTypes.MoveToParametersSetDataType
+    RealTimeParameter: false
     Name: UR5-Home
     MoveStraight: false
     EndPosition: !!python/object:CRCL_DataTypes.CRCL_PoseDataType
@@ -186,7 +211,7 @@ DataBase:
         name: null
         x: 0
         y: 0.25
-        z: 0.20
+        z: 0.16
       xAxis: !!python/object:CRCL_DataTypes.CRCL_VectorDataType
         id: 0
         name: null
@@ -274,6 +299,56 @@ DataBase:
         i: 0
         j: 0
         k: -1
+  - !!python/object:CRCL_DataTypes.MoveToParametersSetDataType
+    RealTimeParameter: false
+    Name: RefillGrey
+    MoveStraight: false
+    EndPosition: !!python/object:CRCL_DataTypes.CRCL_PoseDataType
+      id: 0
+      name: null
+      point: !!python/object:CRCL_DataTypes.CRCL_PointDataType
+        id: 0
+        name: null
+        x: 0.315
+        y: 0.21
+        z: 0.15
+      xAxis: !!python/object:CRCL_DataTypes.CRCL_VectorDataType
+        id: 0
+        name: null
+        i: 0.7
+        j: -0.3
+        k: 0
+      zAxis: !!python/object:CRCL_DataTypes.CRCL_VectorDataType
+        id: 0
+        name: null
+        i: 0
+        j: 0
+        k: -1
+  - !!python/object:CRCL_DataTypes.MoveToParametersSetDataType
+    RealTimeParameter: false
+    Name: RefillYellow
+    MoveStraight: false
+    EndPosition: !!python/object:CRCL_DataTypes.CRCL_PoseDataType
+      id: 0
+      name: null
+      point: !!python/object:CRCL_DataTypes.CRCL_PointDataType
+        id: 0
+        name: null
+        x: 0.29
+        y: -0.17
+        z: 0.19
+      xAxis: !!python/object:CRCL_DataTypes.CRCL_VectorDataType
+        id: 0
+        name: null
+        i: 0.7
+        j: -0.3
+        k: 0
+      zAxis: !!python/object:CRCL_DataTypes.CRCL_VectorDataType
+        id: 0
+        name: null
+        i: 0
+        j: 0
+        k: -1
   - !!python/object:CRCL_DataTypes.ActuateJointsParametersSetDataType
     Name: ActivateZylinderTop
     RealTimeParameter: false
@@ -282,7 +357,8 @@ DataBase:
         JointDetails: !!python/object:CRCL_DataTypes.CRCL_JointDetailsDataType
           isUnion: true
           switchField: 1
-          unionValue: !!python/object:CRCL_DataTypes.CRCL_JointSpeedAccelDataType
+          unionValue:
+            !!python/object:CRCL_DataTypes.CRCL_JointSpeedAccelDataType
             JointAccel: 0
             JointSpeed: 0
             id: 0
@@ -304,7 +380,8 @@ DataBase:
         JointDetails: !!python/object:CRCL_DataTypes.CRCL_JointDetailsDataType
           isUnion: true
           switchField: 1
-          unionValue: !!python/object:CRCL_DataTypes.CRCL_JointSpeedAccelDataType
+          unionValue:
+            !!python/object:CRCL_DataTypes.CRCL_JointSpeedAccelDataType
             JointAccel: 0
             JointSpeed: 0
             id: 0
@@ -326,7 +403,8 @@ DataBase:
         JointDetails: !!python/object:CRCL_DataTypes.CRCL_JointDetailsDataType
           isUnion: true
           switchField: 1
-          unionValue: !!python/object:CRCL_DataTypes.CRCL_JointSpeedAccelDataType
+          unionValue:
+            !!python/object:CRCL_DataTypes.CRCL_JointSpeedAccelDataType
             JointAccel: 0
             JointSpeed: 0
             id: 0
@@ -348,7 +426,8 @@ DataBase:
         JointDetails: !!python/object:CRCL_DataTypes.CRCL_JointDetailsDataType
           isUnion: true
           switchField: 1
-          unionValue: !!python/object:CRCL_DataTypes.CRCL_JointSpeedAccelDataType
+          unionValue:
+            !!python/object:CRCL_DataTypes.CRCL_JointSpeedAccelDataType
             JointAccel: 0
             JointSpeed: 0
             id: 0
