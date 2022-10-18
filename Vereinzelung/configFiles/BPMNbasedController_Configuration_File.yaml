@@ -26,9 +26,9 @@ InformationSources:
   Storage2:
     key: InformationSource_LightBarrierStorage2_0
     type: Boolean
-  YellowPartDetected:
+  yellow:
     key: InformationSource_YellowPartDetected_0
     type: Boolean
-  GreyPartDetected:
+  grey:
     key: InformationSource_GreyPartDetected_0
     type: Boolean
