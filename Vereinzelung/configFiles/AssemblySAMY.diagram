@@ -198,10 +198,10 @@
     <param key='3' type='data' >StationBottom</param>
     <param key='4' type='data' >CloseGripperUR5</param>
     <param key='5' type='data' >AboveStationBottom</param>
-    <param key='6' type='data' >AboveCamera</param>
-    <param key='7' type='data' >PlaceCamera</param>
+    <param key='6' type='data' >AbovePlace</param>
+    <param key='7' type='data' >PlaceBottom</param>
     <param key='8' type='data' >OpenGripperUR5</param>
-    <param key='9' type='data' >AboveCamera</param>
+    <param key='9' type='data' >AbovePlace</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Transition id="trans_id_35" sourceRef="place_id_24" targetRef="place_id_28">
     <condition>1</condition>
@@ -237,10 +237,10 @@
   <SamyBpmnModel:Process id="place_id_33" name="OpenMan:Place">
     <incoming>trans_id_40</incoming>
     <outgoing>trans_id_56</outgoing>
-    <param key='1' type='data' >AboveCamera</param>
-    <param key='2' type='data' >PlaceCamera</param>
+    <param key='1' type='data' >AbovePlace</param>
+    <param key='2' type='data' >PlaceTop</param>
     <param key='3' type='data' >OpenGripper</param>
-    <param key='4' type='data' >AboveCamera</param>
+    <param key='4' type='data' >AbovePlace</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Transition id="trans_id_40" sourceRef="place_id_32" targetRef="place_id_33"/>
   <SamyBpmnModel:Process id="place_id_34" name="OpenMan:SimpleMove">
