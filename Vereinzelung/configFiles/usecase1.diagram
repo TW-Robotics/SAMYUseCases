@@ -252,7 +252,7 @@
   <SamyBpmnModel:Process id="place_id_34" name="OpenMan:SimpleMove">
     <incoming>trans_id_41</incoming>
     <outgoing>trans_id_43</outgoing>
-    <param key='4' type='data' >OpenMan-Home</param>
+    <param key='1' type='data' >OpenMan-Home</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Transition id="trans_id_41" sourceRef="place_id_33" targetRef="place_id_34"/>
   <SamyBpmnModel:VariableManipulationTable id="place_id_35" name="Name">
@@ -286,7 +286,7 @@
   <SamyBpmnModel:Process id="place_id_37" name="OpenMan:SimpleMove">
     <incoming>trans_id_47</incoming>
     <outgoing>trans_id_48</outgoing>
-    <param key='4' type='data' >OpenMan-MidPoseBack</param>
+    <param key='1' type='data' >OpenMan-MidPoseBack</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Transition id="trans_id_47" sourceRef="place_id_10" targetRef="place_id_37"/>
   <SamyBpmnModel:Transition id="trans_id_48" sourceRef="place_id_37" targetRef="place_id_11"/>

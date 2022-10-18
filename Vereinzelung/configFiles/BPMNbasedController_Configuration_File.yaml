@@ -20,10 +20,10 @@ States:
     values:
       - Ready
 InformationSources:
-  Storage1:
+  storage1:
     key: InformationSource_LightBarrierStorage1_0
     type: Boolean
-  Storage2:
+  storage2:
     key: InformationSource_LightBarrierStorage2_0
     type: Boolean
   yellow:
