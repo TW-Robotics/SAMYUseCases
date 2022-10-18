@@ -240,7 +240,7 @@
     <param key='1' type='data' >AboveCamera</param>
     <param key='2' type='data' >PlaceCamera</param>
     <param key='3' type='data' >OpenGripper</param>
-    <param key='4' type='data' >AboveCamera</param>
+    <param key='4' type='data' >OpenMan-MidPose</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Transition id="trans_id_40" sourceRef="place_id_32" targetRef="place_id_33"/>
   <SamyBpmnModel:Process id="place_id_34" name="OpenMan:SimpleMove">
