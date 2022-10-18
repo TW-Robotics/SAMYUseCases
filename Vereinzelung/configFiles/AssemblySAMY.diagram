@@ -37,7 +37,7 @@
     <outgoing>trans_id_4</outgoing>
     <outgoing>trans_id_52</outgoing>
   </SamyBpmnModel:ExclusiveGateway>
-  <SamyBpmnModel:Process id="place_id_6" name="RobotUR5:PickAndPlace">
+  <SamyBpmnModel:Process id="place_id_6" name="UR5Plugin:PickAndPlace">
     <incoming>trans_id_4</incoming>
     <outgoing>trans_id_14</outgoing>
     <param key='1' type='data' >OpenGripperUR5</param>
@@ -90,7 +90,7 @@
     <param key='3' type='data' >OpenGripper</param>
     <param key='4' type='data' >OpenMan-MidPoseBack</param>
   </SamyBpmnModel:Process>
-  <SamyBpmnModel:Process id="place_id_12" name="RobotUR5:SimpleMove">
+  <SamyBpmnModel:Process id="place_id_12" name="UR5Plugin:SimpleMove">
     <incoming>trans_id_14</incoming>
     <outgoing>trans_id_47</outgoing>
     <param key='1' type='data' >UR5-Home</param>
@@ -100,7 +100,7 @@
     <outgoing>trans_id_11</outgoing>
     <param key='1' type='data' >OpenMan-Home</param>
   </SamyBpmnModel:Process>
-  <SamyBpmnModel:Process id="place_id_14" name="RobotUR5:SimpleMove">
+  <SamyBpmnModel:Process id="place_id_14" name="UR5Plugin:SimpleMove">
     <incoming>trans_id_11</incoming>
     <outgoing>trans_id_18</outgoing>
     <param key='1' type='data' >UR5-Home</param>
@@ -190,7 +190,7 @@
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Transition id="trans_id_33" sourceRef="place_id_18" targetRef="place_id_27"/>
   <SamyBpmnModel:Transition id="trans_id_34" sourceRef="place_id_27" targetRef="place_id_19"/>
-  <SamyBpmnModel:Process id="place_id_28" name="RobotUR5:PickAndPlace">
+  <SamyBpmnModel:Process id="place_id_28" name="UR5Plugin:PickAndPlace">
     <incoming>trans_id_35</incoming>
     <outgoing>trans_id_36</outgoing>
     <param key='1' type='data' >OpenGripperUR5</param>
@@ -206,7 +206,7 @@
   <SamyBpmnModel:Transition id="trans_id_35" sourceRef="place_id_24" targetRef="place_id_28">
     <condition>1</condition>
   </SamyBpmnModel:Transition>
-  <SamyBpmnModel:Process id="place_id_29" name="RobotUR5:SimpleMove">
+  <SamyBpmnModel:Process id="place_id_29" name="UR5Plugin:SimpleMove">
     <incoming>trans_id_36</incoming>
     <outgoing>trans_id_37</outgoing>
     <param key='1' type='data' >UR5-Home</param>
