@@ -24,32 +24,29 @@ Robots:
         #   Type: IO-Link
       OPCUARoboticsFile: MqttPlugin.xml
       Skills:
-        - CheckStorage
-        - ZylinderOff
-        - ZylinderOn
+        - CheckStorageSkill
+        - MoveCylinderSkill
   - Robot:
-      Name: OpenMan
+      Name: OpenManPlugin
       ID: 12345
       Address: "10.0.0.100"
       OPCUARoboticsFile: OpenMan.xml
       Skills:
-        - PickAndPlace
-        - Pick
-        - Place
-        - SimpleMove
-        - GetCurrentPose
-        - SetGripper
+        - MoveToSkill
+        - PickSkill
+        - PlaceSkill
+        - SetGripperSkill
   - Robot:
       Name: UR5Plugin
       ID: 12344
-      Address: "10.0.0.31"
+      Address: "10.0.0.27"
       OPCUARoboticsFile: Ur5.xml
       Skills:
-        - PickAndPlace
-        - Pick
-        - Place
-        - SimpleMove
-        - SetGripper
+        - MoveToSkill
+        - PickSkill
+        - PlaceSkill
+        - PickAndPlaceSkill
+        - SetGripperSkill
       Workobject:
         - -0.764
         - 0.144
@@ -58,9 +55,9 @@ Robots:
         - 0.0
         - -1.5707
   - Robot:
-      Name: Camera
+      Name: CameraPlugin
       ID: 45
       Address: "0.0.0.0"
       OPCUARoboticsFile: Camera.xml
       Skills:
-        - GetPose
+        - GetPoseSkill

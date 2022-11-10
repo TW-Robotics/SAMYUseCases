@@ -1,24 +1,31 @@
-InformationSources:
-      - InformationSource:
+InformationSourcesDescriptions:
+      - InformationSourceDescription:
               InformationSourceName: "LightBarrierStorage1"
               DataTypes:
                     - Boolean
-      - InformationSource:
+      - InformationSourceDescription:
               InformationSourceName: "LightBarrierStorage2"
               DataTypes:
                     - Boolean
-      - InformationSource:
+      - InformationSourceDescription:
               InformationSourceName: "CameraPose"
               DataTypes:
-                    - MoveToParametersSetDataType
-      - InformationSource:
+                    - MoveToParamsSetDataType
+      - InformationSourceDescription:
               InformationSourceName: "YellowPartDetected"
               DataTypes:
                     - Boolean
-      - InformationSource:
+      - InformationSourceDescription:
               InformationSourceName: "GreyPartDetected"
               DataTypes:
                     - Boolean
+InformationSources:
+      - InformationSource:
+              InformationSourceName: "complexInfoSource1"
+              DataTypes:
+                    - Boolean
+                    - Boolean
+                    - YellowPartDetected
 # - InformationSource:
 #       InformationSourceName: "DistanceSensor1"
 #       DataTypes:

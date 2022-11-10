@@ -1,0 +1,8 @@
+SAMYSkillConfig:
+   SkillName: "MoveCylinderSkill"
+   Language: "C++"
+   EntryFile: "MoveCylinder.cpp"
+   EntryFunction: "moveCylinderFunction"
+   Parameters:
+      - Name: "joint"
+        DataType: UA_CRCL_ActuateJointDataType

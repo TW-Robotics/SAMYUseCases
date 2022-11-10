@@ -1,6 +1,6 @@
 SAMYCoreConfig:
    AppURI: "AppURItest"
-   AppName: "AppNameTest"
+   AppName: "Vereinzelung"
    Server:
       Port: 4840
       Encryption: false
@@ -8,15 +8,11 @@ SAMYCoreConfig:
       CertificatesPath: ""
    Logging:
       Level:
-         App: "info"
+         App: "error"
          OPCUA: "error"
       Path: "logs"
    ConfigFiles:
-      SkillsFile: "/usr/src/samy/configFiles/Skills.yaml"
+      SkillsFile: "/usr/src/samy/configFiles/Skills" 
       RobotsFile: "/usr/src/samy/configFiles/RobotsConfiguration.yaml"
       InformationSourcesFile: "/usr/src/samy/configFiles/InformationSources.yaml"
       DataBaseFile: "/usr/src/samy/configFiles/DataBaseFile.yaml"
-      # SkillsFile: "/home/felix/Desktop/SAMY/Git/SAMYPlugins/MQTT/samyConfigFiles/Skills.yaml"
-      # RobotsFile: "/home/felix/Desktop/SAMY/Git/SAMYPlugins/MQTT/samyConfigFiles/RobotsConfiguration.yaml"
-      # InformationSourcesFile: "/home/felix/Desktop/SAMY/Git/SAMYPlugins/MQTT/samyConfigFiles/InformationSources.yaml"
-      # DataBaseFile: "/home/felix/Desktop/SAMY/Git/SAMYPlugins/MQTT/samyConfigFiles/DataBaseFile.yaml"

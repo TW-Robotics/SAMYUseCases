@@ -1,3 +1,6 @@
+# Ignore contend of build folders
+**build**
+
 # Prerequisites
 *.d
 

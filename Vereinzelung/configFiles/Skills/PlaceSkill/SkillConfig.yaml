@@ -1,0 +1,10 @@
+SAMYSkillConfig:
+   SkillName: "PlaceSkill"
+   Language: "C++"
+   EntryFile: "Place.cpp"
+   EntryFunction: "placeFunction"
+   Parameters: 
+      - Name: "placePose"
+        DataType: UA_CRCL_PoseDataType
+      - Name: "offset"
+        DataType: UA_CRCL_FractionDataType
