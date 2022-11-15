@@ -23,7 +23,7 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 	I am planning to write a compiler-preprocessor based on Clang for automating these stuff so you can write code without these artifacts, 
 	but for the moment should be fine like this.
     */
-    void moveToSkill( UA_CRCL_FractionDataType const * const setting ){
+    void setGripperFunction( UA_CRCL_FractionDataType const * const setting ){
         UA_CRCL_FractionDataType gripperPosition = *setting;
         std::vector<UA_CRCLCommandsParamsSetsUnionDataType> commands;
 

@@ -1,31 +1,45 @@
 InformationSourcesDescriptions:
-      - InformationSourceDescription:
+      # - InformationSourceDescription:
+      #         InformationSourceName: "LightBarrierStorage1"
+      #         DataTypes:
+      #               - Boolean
+      # - InformationSourceDescription:
+      #         InformationSourceName: "LightBarrierStorage2"
+      #         DataTypes:
+      #               - Boolean
+      # - InformationSourceDescription:
+      #         InformationSourceName: "CameraPose"
+      #         DataTypes:
+      #               - MoveToParamsSetDataType
+      # - InformationSourceDescription:
+      #         InformationSourceName: "YellowPartDetected"
+      #         DataTypes:
+      #               - Boolean
+      # - InformationSourceDescription:
+      #         InformationSourceName: "GreyPartDetected"
+      #         DataTypes:
+      #               - Boolean
+InformationSources:
+      - InformationSource:
               InformationSourceName: "LightBarrierStorage1"
               DataTypes:
                     - Boolean
-      - InformationSourceDescription:
+      - InformationSource:
               InformationSourceName: "LightBarrierStorage2"
               DataTypes:
                     - Boolean
-      - InformationSourceDescription:
+      - InformationSource:
               InformationSourceName: "CameraPose"
               DataTypes:
                     - MoveToParamsSetDataType
-      - InformationSourceDescription:
+      - InformationSource:
               InformationSourceName: "YellowPartDetected"
               DataTypes:
                     - Boolean
-      - InformationSourceDescription:
+      - InformationSource:
               InformationSourceName: "GreyPartDetected"
               DataTypes:
                     - Boolean
-InformationSources:
-      - InformationSource:
-              InformationSourceName: "complexInfoSource1"
-              DataTypes:
-                    - Boolean
-                    - Boolean
-                    - YellowPartDetected
 # - InformationSource:
 #       InformationSourceName: "DistanceSensor1"
 #       DataTypes:

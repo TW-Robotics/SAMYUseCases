@@ -7,5 +7,5 @@
 #include <skillsScriptingAPI.h>
 
 extern "C" {
-        void moveToSkill( UA_CRCL_FractionDataType const * const setting);
+        void setGripperFunction( UA_CRCL_FractionDataType const * const setting);
 } 

@@ -30,7 +30,7 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 		const UA_CRCL_FractionDataType offset_ = *offset;
 
 		// Create commands vector
-		 std::vector<UA_CRCLCommandsParamsSetsUnionDataType> commands;
+		std::vector<UA_CRCLCommandsParamsSetsUnionDataType> commands;
 
 		// Create CRCL command data type that the plugin will be able to proces
 		// This has to be one of the CRCL commands (not Primitive Data Type)

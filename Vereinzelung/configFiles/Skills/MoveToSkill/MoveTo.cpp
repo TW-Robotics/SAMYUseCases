@@ -23,16 +23,20 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 	I am planning to write a compiler-preprocessor based on Clang for automating these stuff so you can write code without these artifacts, 
 	but for the moment should be fine like this.
     */
-    void moveToSkill( UA_CRCL_PoseDataType const * const goalPose ){
+    void moveToSkill( UA_CRCL_PoseDataType const * const goalPose, UA_CRCL_ParameterSettingDataType const * const moveType ){
         UA_CRCL_PoseDataType pose = *goalPose;
+		UA_CRCL_ParameterSettingDataType move = *moveType;
         std::vector<UA_CRCLCommandsParamsSetsUnionDataType> commands;
 
 	    UA_MoveToParamsSetDataType moveTo;
 	    moveTo.name = UA_STRING( "UA_MoveToParamsSetDataType" );
-	    moveTo.realTimeParameter = false;
+		if (std::string((char *)move.parameterValue.data, move.parameterValue.length) == "False")
+	    	moveTo.moveStraight = false;
+		else
+			moveTo.moveStraight = true;
 	    moveTo.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
 	    moveTo.endPosition = pose;
-	    moveTo.moveStraight = false;
+		moveTo.realTimeParameter = false;
 
 	    UA_CRCLCommandsParamsSetsUnionDataType commandsUnion1;
 	    commandsUnion1.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;

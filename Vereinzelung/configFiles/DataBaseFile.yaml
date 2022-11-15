@@ -308,9 +308,17 @@ DataBase:
     fractionMin: 0
   - !!python/object:CRCL_DataTypes.CRCL_FractionDataType
     name: "Offset"
-    fraction: 10.9
+    fraction: 0.05
     fractionMax: 100
     fractionMin: 0
-  # - !!python/object:UA.Double
-  #   Name: "Offset"
-  #   Value: 10.03
+  - !!python/object:CRCL_DataTypes.CRCL_ParameterSettingDataType
+    name: "MoveJ"
+    id: 0
+    parameterValue: "True"
+    parameterName: MoveStraight
+  - !!python/object:CRCL_DataTypes.CRCL_ParameterSettingDataType
+    name: "MoveL"
+    id: 0
+    parameterValue: "False"
+    parameterName: MoveStraight
+
