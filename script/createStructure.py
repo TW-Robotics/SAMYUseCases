@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import yaml
 import jinja2
-import sys
 from jinja2 import Template
 import flatdict
 import os
@@ -189,7 +188,7 @@ if __name__ == "__main__":
 			yamldata['foldername']=f[2:]
 			cpp_filename = yamldata["SAMYSkillConfig"]["EntryFile"]
 			if cpp_filename[:-4] != f[2:]:
-			    print("Warning: Folder " + f + " and C++ file " + cpp_filename + "do NOT have the same naming scheme!")
+			    print("Warning: Folder " + f + " and C++ file " + cpp_filename + " do NOT have the same naming scheme!")
 			create_h(f)
 			create_cmake(f)
 			cpp_path = "./" + str(f) + "/" + cpp_filename
@@ -207,6 +206,12 @@ if __name__ == "__main__":
 				create_startsh(f)
 			else:
 				print("Folder " + f + " ignored! No CMakeLists.txt file found!")
+			build_folder_path = str(f) + "/build"
+			if os.path.exists(build_folder_path):
+				print("Folder " + f + "/build has been found. Skipping")
+			else:
+				os.mkdir(build_folder_path)
+				print("Directory: " + f + "/build created!")
 		start_file = open("../start.sh","a")
 		start_file.write("\n/usr/src/samy/build/SAMYCore /usr/src/samy/configFiles/SAMYCoreConfig.yaml")
 		start_file.close()
