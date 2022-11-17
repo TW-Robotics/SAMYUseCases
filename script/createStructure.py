@@ -95,7 +95,7 @@ def create_h(foldername):
 
 extern "C" {
 
-	void {{ SAMYSkillConfig.EntryFunction }}({% for x in SAMYSkillConfig.Parameters -%}{{x.DataType}} const * const {{x.Name}}{% if not loop.last %},
+	void {{ SAMYSkillConfig.EntryFunction }}({% for x in SAMYSkillConfig.Parameters -%}{% if x.DataType[:2] != 'UA' %}UA_{% endif %}{{x.DataType}} const * const {{x.Name}}{% if not loop.last %},
 	        {% endif %}{% endfor %});
     
 }"""
@@ -135,11 +135,11 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 	but for the moment should be fine like this.
 	This file is created automatically through the createStructure.py scrpt.
 	*/
-	void {{ SAMYSkillConfig.EntryFunction }}({% for x in SAMYSkillConfig.Parameters -%}{{x.DataType}} const * const {{x.Name}}{% if not loop.last %}, {% endif %}{% endfor %}){
+	void {{ SAMYSkillConfig.EntryFunction }}({% for x in SAMYSkillConfig.Parameters -%}{% if x.DataType[:2] != 'UA' %}UA_{% endif %}{{x.DataType}} const * const {{x.Name}}{% if not loop.last %}, {% endif %}{% endfor %}){
 			
 		// Copy the parameter in local variable
 		{% for x in SAMYSkillConfig.Parameters -%}
-		{{x.DataType}} {{x.Name}}_local = *{{x.Name}};
+		{% if x.DataType[:2] != 'UA' %}UA_{% endif %}{{x.DataType}} {{x.Name}}_local = *{{x.Name}};
 		{% endfor %}	
 
 		// Create commands vector
