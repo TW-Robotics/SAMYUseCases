@@ -2,21 +2,19 @@
 import yaml
 import jinja2
 from jinja2 import Template
-import flatdict
 import os
 
 
 def create_startsh(foldername):
 	
 	template="""
-cd /usr/src/samy/configFiles/Skills/{{data}}/ && cd build && cmake .. && make -j$((`nproc`-2)) &&  mv lib{{data}}.so.1.0 ../lib{{data}}.so && \
-
-"""
+cd /usr/src/samy/configFiles/Skills/{{data}}/ && cd build && cmake .. && make -j$((`nproc`-2)) &&  mv lib{{data}}.so.1.0 ../lib{{data}}.so && """
 	out = Template(template)
 	filepath = "../start.sh"
 	try:
 		start_file = open(filepath,"a")
 		start_file.write(out.render(data = foldername[2:]))
+		start_file.write("\\")
 		start_file.close
 	except:
 		print("You do not have permission to write in this folder!")
@@ -198,7 +196,7 @@ if __name__ == "__main__":
 				create_cpp(f)
 				stream.close()
 		start_file = open("../start.sh","w")
-		start_file.write(" ")
+		start_file.write("#!/bin/bash \n")
 		start_file.close()
 		for f in subfolders:
 			cmake_path = str(f) + "/CMakeLists.txt"
