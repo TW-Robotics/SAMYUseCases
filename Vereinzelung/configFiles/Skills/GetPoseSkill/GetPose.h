@@ -7,5 +7,5 @@
 #include <skillsScriptingAPI.h>
 
 extern "C" {
-        void getPoseFunction(UA_UInt32 const * const dummy);
+        void getPoseSkill(UA_UInt32 const * const dummy);
 } 

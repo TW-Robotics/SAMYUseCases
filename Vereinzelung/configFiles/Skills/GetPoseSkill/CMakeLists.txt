@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.0)
 
 set (PROJECT_VERSION "1.0")
-set (LIBRARY_NAME "getPoseFunction")
+set (LIBRARY_NAME "getPoseSkill")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

@@ -23,7 +23,7 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 	I am planning to write a compiler-preprocessor based on Clang for automating these stuff so you can write code without these artifacts, 
 	but for the moment should be fine like this.
     */
-    void moveCylinderFunction( UA_CRCL_ActuateJointDataType const * const joint){
+    void moveCylinderSkill( UA_CRCL_ActuateJointDataType const * const joint){
 		UA_CRCL_ActuateJointDataType cylinder[1];
 		cylinder[0] = *joint;
         std::vector<UA_CRCLCommandsParamsSetsUnionDataType> commands;

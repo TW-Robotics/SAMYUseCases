@@ -2,7 +2,7 @@ SAMYSkillConfig:
    SkillName: "PlaceSkill"
    Language: "C++"
    EntryFile: "Place.cpp"
-   EntryFunction: "placeFunction"
+   EntryFunction: "placeSkill"
    Parameters: 
       - Name: "placePose"
         DataType: UA_CRCL_PoseDataType

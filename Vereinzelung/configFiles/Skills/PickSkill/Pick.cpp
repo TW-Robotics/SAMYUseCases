@@ -23,7 +23,7 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 	I am planning to write a compiler-preprocessor based on Clang for automating these stuff so you can write code without these artifacts, 
 	but for the moment should be fine like this.
     */
-    void pickFunction( UA_CRCL_PoseDataType const * const pickPose,
+    void pickSkill( UA_CRCL_PoseDataType const * const pickPose,
 					   UA_CRCL_FractionDataType const * const offset ){
 		// Copy the parameter in local variable
 		UA_CRCL_PoseDataType pose = *pickPose;

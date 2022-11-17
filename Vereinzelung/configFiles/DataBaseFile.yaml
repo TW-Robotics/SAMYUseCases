@@ -314,11 +314,11 @@ DataBase:
   - !!python/object:CRCL_DataTypes.CRCL_ParameterSettingDataType
     name: "MoveJ"
     id: 0
-    parameterValue: "True"
-    parameterName: MoveStraight
+    parameterValue: "False"
+    parameterName: "MoveStraight"
   - !!python/object:CRCL_DataTypes.CRCL_ParameterSettingDataType
     name: "MoveL"
     id: 0
-    parameterValue: "False"
-    parameterName: MoveStraight
+    parameterValue: "True"
+    parameterName: "MoveStraight"
 

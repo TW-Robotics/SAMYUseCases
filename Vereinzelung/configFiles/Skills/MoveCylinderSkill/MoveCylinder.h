@@ -7,5 +7,5 @@
 #include <skillsScriptingAPI.h>
 
 extern "C" {
-        void moveCylinderFunction(UA_CRCL_ActuateJointDataType const * const joint);
+        void moveCylinderSkill(UA_CRCL_ActuateJointDataType const * const joint);
 } 

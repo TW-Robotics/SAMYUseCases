@@ -2,7 +2,7 @@ SAMYSkillConfig:
    SkillName: "CheckStorageSkill"
    Language: "C++"
    EntryFile: "CheckStorage.cpp"
-   EntryFunction: "checkStorageFunction"
+   EntryFunction: "checkStorageSkill"
    Parameters:
       - Name: "dummy"
         DataType: UInt32

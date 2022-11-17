@@ -2,7 +2,7 @@ SAMYSkillConfig:
    SkillName: "SetGripperSkill"
    Language: "C++"
    EntryFile: "SetGripper.cpp"
-   EntryFunction: "setGripperFunction"
+   EntryFunction: "setGripperSkill"
    Parameters: 
       - Name: "setting"
         DataType: UA_CRCL_FractionDataType

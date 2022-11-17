@@ -7,5 +7,5 @@
 #include <skillsScriptingAPI.h>
 
 extern "C" {
-        void checkStorageFunction(UA_UInt32 const * const dummy);
+        void checkStorageSkill(UA_UInt32 const * const dummy);
 } 

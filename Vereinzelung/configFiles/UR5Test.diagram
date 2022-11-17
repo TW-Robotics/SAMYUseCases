@@ -6,43 +6,38 @@
   <SamyBpmnModel:End id="place_id_2">
     <incoming>trans_id_7</incoming>
   </SamyBpmnModel:End>
-  <SamyBpmnModel:VariableContainer id="v_cont_id_1">
-    <variables name="Counter">
-      <values key="0" value="1"/>
-      <values key="1" value="2"/>
-      <values key="2" value="3"/>
-    </variables>
-  </SamyBpmnModel:VariableContainer>
   <SamyBpmnModel:Process id="place_id_3" name="UR5Plugin:MoveToSkill">
     <incoming>trans_id_2</incoming>
     <outgoing>trans_id_3</outgoing>
-    <param key='goalPose' type='data' >UR5-Home</param>
-    <param key='moveType' type='data' >MoveJ</param>
+    <param key="goalPose" type="data" >UR5-Home</param>
+    <param key="moveType" type="data" >MoveJ</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Process id="place_id_4" name="UR5Plugin:PickSkill">
     <incoming>trans_id_3</incoming>
     <outgoing>trans_id_4</outgoing>
-    <param key='pickPose' type='data' >PlaceTop</param>
-    <param key='offset' type='data' >Offset</param>
+    <param key="pickPose" type="data" >StationBottom</param>
+    <param key="offset" type="data" >Offset</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Process id="place_id_5" name="UR5Plugin:PlaceSkill">
     <incoming>trans_id_4</incoming>
     <outgoing>trans_id_5</outgoing>
-    <param key='placePose' type='data' >PlaceBottom</param>
-    <param key='offset' type='data' >Offset</param>
+    <param key="pickPose" type="data" >PlaceBottom</param>
+    <param key="offset" type="data" >Offset</param>
   </SamyBpmnModel:Process>
-  <SamyBpmnModel:VariableManipulationTable id="place_id_6" name="Name">
+  <SamyBpmnModel:VariableManipulationTable id="place_id_6" name="Loop Counter">
     <incoming>trans_id_5</incoming>
-    <outgoing>trans_id_6</outgoing>
+    <outgoing>trans_id_11</outgoing>
     <in name="Counter">
+      <values key="0" value="0"/>
+      <values key="1" value="1"/>
+      <values key="2" value="2"/>
+      <values key="3" value="3"/>
+    </in>
+    <out name="Counter">
       <values key="0" value="1"/>
       <values key="1" value="2"/>
       <values key="2" value="3"/>
-    </in>
-    <out name="Counter">
-      <values key="0" value="2"/>
-      <values key="1" value="3"/>
-      <values key="2" value="3"/>
+      <values key="3" value="3"/>
     </out>
   </SamyBpmnModel:VariableManipulationTable>
   <SamyBpmnModel:LoopbackGateway id="place_id_7">
@@ -51,7 +46,7 @@
     <outgoing>trans_id_2</outgoing>
   </SamyBpmnModel:LoopbackGateway>
   <SamyBpmnModel:ExclusiveGateway id="place_id_8" keyVariable="Counter">
-    <incoming>trans_id_6</incoming>
+    <incoming>trans_id_11</incoming>
     <outgoing>trans_id_7</outgoing>
     <outgoing>trans_id_8</outgoing>
   </SamyBpmnModel:ExclusiveGateway>
@@ -59,7 +54,6 @@
   <SamyBpmnModel:Transition id="trans_id_3" sourceRef="place_id_3" targetRef="place_id_4"/>
   <SamyBpmnModel:Transition id="trans_id_4" sourceRef="place_id_4" targetRef="place_id_5"/>
   <SamyBpmnModel:Transition id="trans_id_5" sourceRef="place_id_5" targetRef="place_id_6"/>
-  <SamyBpmnModel:Transition id="trans_id_6" sourceRef="place_id_6" targetRef="place_id_8"/>
   <SamyBpmnModel:Transition id="trans_id_7" sourceRef="place_id_8" targetRef="place_id_2">
     <condition>3</condition>
   </SamyBpmnModel:Transition>
@@ -67,20 +61,31 @@
     <condition>1</condition>
     <condition>2</condition>
   </SamyBpmnModel:Transition>
-  <SamyBpmnModel:VariableManipulationTable id="place_id_9" name="Name">
+  <SamyBpmnModel:VariableManipulationTable id="place_id_9" name="Reset Loop Counter">
     <incoming>trans_id_9</incoming>
     <outgoing>trans_id_10</outgoing>
     <in name="Counter">
-      <values key="0" value="1"/>
-      <values key="1" value="2"/>
-      <values key="2" value="3"/>
+      <values key="0" value="0"/>
+      <values key="1" value="1"/>
+      <values key="2" value="2"/>
+      <values key="3" value="3"/>
     </in>
     <out name="Counter">
-      <values key="0" value="1"/>
-      <values key="1" value="1"/>
-      <values key="2" value="1"/>
+      <values key="0" value="0"/>
+      <values key="1" value="0"/>
+      <values key="2" value="0"/>
+      <values key="3" value="0"/>
     </out>
   </SamyBpmnModel:VariableManipulationTable>
   <SamyBpmnModel:Transition id="trans_id_9" sourceRef="place_id_1" targetRef="place_id_9"/>
   <SamyBpmnModel:Transition id="trans_id_10" sourceRef="place_id_9" targetRef="place_id_7"/>
+  <SamyBpmnModel:VariableContainer id="v_cont_id_1">
+    <variables name="Counter">
+      <values key="0" value="0"/>
+      <values key="1" value="1"/>
+      <values key="2" value="2"/>
+      <values key="3" value="3"/>
+    </variables>
+  </SamyBpmnModel:VariableContainer>
+  <SamyBpmnModel:Transition id="trans_id_11" sourceRef="place_id_6" targetRef="place_id_8"/>
 </xmi:XMI>
