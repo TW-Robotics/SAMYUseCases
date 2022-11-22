@@ -1,3 +1,4 @@
+
 # Always set the cmake min version.
 cmake_minimum_required(VERSION 3.0)
 
@@ -7,14 +8,12 @@ set (LIBRARY_NAME "pickAndPlaceSkill")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_definitions(-w)
-
 #set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR})
 #set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR})
 
-
+add_definitions(-w)
 # Set the variable PROJ_NAME to whatever your library's name is, PROJECT_VERSION should be a version string like "0.1"
-project(PickAndPlaceSkill_project VERSION ${PROJECT_VERSION})
+project(PickAndPlaceSkill VERSION ${PROJECT_VERSION})
 
 find_package(open62541 1.2 REQUIRED COMPONENTS FullNamespace)
 
@@ -53,4 +52,3 @@ endif()
 
 
 target_link_libraries( ${LIBRARY_NAME} "${CMAKE_SOURCE_DIR}/../../../build/SAMYCore_Library.so.2.0")
-

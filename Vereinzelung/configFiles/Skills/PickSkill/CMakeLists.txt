@@ -1,3 +1,4 @@
+
 # Always set the cmake min version.
 cmake_minimum_required(VERSION 3.0)
 
@@ -51,4 +52,3 @@ endif()
 
 
 target_link_libraries( ${LIBRARY_NAME} "${CMAKE_SOURCE_DIR}/../../../build/SAMYCore_Library.so.2.0")
-

@@ -54,10 +54,14 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 	    moveToPick.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
 
 		close.name = UA_STRING("closeGripper");
-		close.setting.fraction = 1; // TODO Check if 1 is realy closed!!!!
+		close.setting.fraction = 1.0; // TODO Check if 1 is realy closed!!!!
+		close.setting.fractionMin = 0.0;
+		close.setting.fractionMax = 1.0;
 
 		open.name = UA_STRING("openGripper");
-		open.setting.fraction = 0;
+		open.setting.fraction = 0.0;
+		open.setting.fractionMin = 0.0;
+		open.setting.fractionMax = 1.0;
 
 		// Create Unions of the commands to write to the samyCore
 		UA_CRCLCommandsParamsSetsUnionDataType moveToAbovePickUnion;
@@ -78,9 +82,9 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 
 		// Add commadns to the commands vector
 	    commands.emplace_back( moveToAbovePickUnion );
-		commands.emplace_back( openUnion );
+		//commands.emplace_back( openUnion );
 		commands.emplace_back( moveToPickUnion );
-		commands.emplace_back( closeUnion );
+		//commands.push_back( closeUnion );
 		commands.emplace_back( moveToAbovePickUnion );
 
 

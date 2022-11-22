@@ -1,3 +1,4 @@
+
 # Always set the cmake min version.
 cmake_minimum_required(VERSION 3.0)
 
@@ -11,9 +12,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR})
 
 add_definitions(-w)
-
 # Set the variable PROJ_NAME to whatever your library's name is, PROJECT_VERSION should be a version string like "0.1"
-project(SetGripperSkill_project VERSION ${PROJECT_VERSION})
+project(SetGripperSkill VERSION ${PROJECT_VERSION})
 
 find_package(open62541 1.2 REQUIRED COMPONENTS FullNamespace)
 
@@ -52,4 +52,3 @@ endif()
 
 
 target_link_libraries( ${LIBRARY_NAME} "${CMAKE_SOURCE_DIR}/../../../build/SAMYCore_Library.so.2.0")
-

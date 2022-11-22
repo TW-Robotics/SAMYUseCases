@@ -1,6 +1,5 @@
 #include <MoveTo.h>
 #include <skillsScriptingAPI.h>
-
 #include <functional>
 #include <iostream>
 
@@ -23,7 +22,8 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 	I am planning to write a compiler-preprocessor based on Clang for automating these stuff so you can write code without these artifacts, 
 	but for the moment should be fine like this.
     */
-    void moveToSkill( UA_CRCL_PoseDataType const * const goalPose, UA_CRCL_ParameterSettingDataType const * const moveType ){
+    void moveToSkill( UA_CRCL_PoseDataType const * const goalPose,
+					  UA_CRCL_ParameterSettingDataType const * const moveType ){
         UA_CRCL_PoseDataType pose = *goalPose;
 		UA_CRCL_ParameterSettingDataType move = *moveType;
         std::vector<UA_CRCLCommandsParamsSetsUnionDataType> commands;
@@ -41,7 +41,19 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 	    UA_CRCLCommandsParamsSetsUnionDataType commandsUnion1;
 	    commandsUnion1.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
 	    commandsUnion1.fields.moveToParamsSet = moveTo;
-        commands.emplace_back( commandsUnion1 );
+        commands.push_back( commandsUnion1 );
+
+		UA_CRCL_TransSpeedAbsoluteDataType speedData;
+		speedData.setting = 3.0;
+
+		UA_SetTransSpeedParamsSetDataType speed;
+		speed.transSpeed.switchField = UA_CRCL_TRANSSPEEDDATATYPESWITCH_TRANSSPEEDABSOLUTEDATATYPE;
+		speed.transSpeed.fields.transSpeedAbsoluteDataType = speedData;
+
+		UA_CRCLCommandsParamsSetsUnionDataType speedUnion;
+		speedUnion.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_SETTRANSSPEEDPARAMSSET;
+		speedUnion.fields.setTransSpeedParamsSet = speed;
+		commands.push_back(speedUnion);
         
         setCommandsBuffer( commands ); /* Sets the buffer of commands to be executed by the robot to be the previously created vector 
         of commands "commands". It does not send them yet nor modifies the CommandsBuffer variable in the SAMYCore. 

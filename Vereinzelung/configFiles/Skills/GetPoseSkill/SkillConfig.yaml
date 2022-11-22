@@ -1,7 +1,7 @@
 SAMYSkillConfig:
    SkillName: "GetPoseSkill"
    Language: "C++"
-   EntryFile: "GetPose.cpp"
+   EntryFile: "GetPoseSkill.cpp"
    EntryFunction: "getPoseSkill"
    Parameters:
       - Name: "dummy"

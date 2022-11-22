@@ -1,7 +1,7 @@
 SAMYSkillConfig:
    SkillName: "PlaceGridSkill"
    Language: "C++"
-   EntryFile: "MoveTo.cpp"
+   EntryFile: "PlaceGrid.cpp"
    EntryFunction: "placeGridSkill"
    Parameters: 
       - Name: "startPose"

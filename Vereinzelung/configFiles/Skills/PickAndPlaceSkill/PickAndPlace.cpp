@@ -67,20 +67,20 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
             commandsUnion1.fields.moveToParamsSet = abovePickParams;
             commands.emplace_back( commandsUnion1 );
         UA_CRCLCommandsParamsSetsUnionDataType commandsUnion2;
-            commandsUnion1.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
-            commandsUnion1.fields.moveToParamsSet = pickParams;
+            commandsUnion2.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
+            commandsUnion2.fields.moveToParamsSet = pickParams;
             commands.emplace_back( commandsUnion2 );
         UA_CRCLCommandsParamsSetsUnionDataType commandsUnion3;
-            commandsUnion1.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
-            commandsUnion1.fields.moveToParamsSet = abovePlaceParams;
+            commandsUnion3.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
+            commandsUnion3.fields.moveToParamsSet = abovePlaceParams;
             commands.emplace_back( commandsUnion3 );
         UA_CRCLCommandsParamsSetsUnionDataType commandsUnion4;
-            commandsUnion1.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
-            commandsUnion1.fields.moveToParamsSet = placeParams;
+            commandsUnion4.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
+            commandsUnion4.fields.moveToParamsSet = placeParams;
             commands.emplace_back( commandsUnion4 );
         UA_CRCLCommandsParamsSetsUnionDataType commandsUnion5;
-            commandsUnion1.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
-            commandsUnion1.fields.moveToParamsSet = abovePlaceParams;
+            commandsUnion5.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
+            commandsUnion5.fields.moveToParamsSet = abovePlaceParams;
             commands.emplace_back( commandsUnion5 );
         
         setCommandsBuffer( commands ); /* Sets the buffer of commands to be executed by the robot to be the previously created vector 
