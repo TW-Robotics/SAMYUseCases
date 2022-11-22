@@ -1,4 +1,4 @@
-#include <PlaceGridSkill.h>
+#include <PlaceGrid.h>
 #include <skillsScriptingAPI.h>
 #include <functional>
 #include <iostream>
@@ -33,14 +33,14 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 
 		// Create commands vector
 		std::vector<UA_CRCLCommandsParamsSetsUnionDataType> commands;
+		double offsetZ = 0.04;
 
-
-		// Add a pose a little above the goalPose to approch the place area
-		UA_CRCL_PoseDataType poseAbove = *goalPose;
+		// Add a pose a little above the startPose to approch the place area
+		UA_CRCL_PoseDataType poseAbove = *startPose;
 		poseAbove.point.z += offsetZ;
 
 		// Add the pose and offset it
-		UA_CRCL_PoseDataType pose = *goalPose;
+		UA_CRCL_PoseDataType pose = *startPose;
 		pose.point.x += offsetX_local.fraction * counterX_local.fraction;
 		pose.point.y += offsetY_local.fraction * counterY_local.fraction;
 		

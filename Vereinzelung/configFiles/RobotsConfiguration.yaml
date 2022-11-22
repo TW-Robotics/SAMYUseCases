@@ -49,7 +49,6 @@ Robots:
         - PickAndPlaceSkill
         - SetGripperSkill
         - PlaceGridSkill
-        - MoveToViaSkill
       Workobject:
         - -0.764
         - 0.144

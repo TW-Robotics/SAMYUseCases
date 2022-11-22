@@ -18,10 +18,9 @@
     <param key="goalPose" type="data" >PlaceTop</param>
     <param key="moveType" type="data" >MoveJ</param>
   </SamyBpmnModel:Process>
-  <SamyBpmnModel:Process id="place_id_5" name="UR5Plugin:MoveToViaSkill">
+  <SamyBpmnModel:Process id="place_id_5" name="UR5Plugin:MoveToSkill">
     <incoming>trans_id_4</incoming>
     <outgoing>trans_id_5</outgoing>
-    <param key="viaPose" type="data" >PlaceTop</param>
     <param key="goalPose" type="data" >StationBottom</param>
     <param key="moveType" type="data" >MoveJ</param>
   </SamyBpmnModel:Process>

@@ -6,7 +6,6 @@ cd /usr/src/samy/configFiles/Skills/MoveToSkill/ && cd build && cmake .. && make
 cd /usr/src/samy/configFiles/Skills/PickAndPlaceSkill/ && cd build && cmake .. && make -j$((`nproc`-2)) &&  mv libpickAndPlaceSkill.so.1.0 ../libpickAndPlaceSkill.so && \
 cd /usr/src/samy/configFiles/Skills/SetGripperSkill/ && cd build && cmake .. && make -j$((`nproc`-2)) &&  mv libsetGripperSkill.so.1.0 ../libsetGripperSkill.so && \
 cd /usr/src/samy/configFiles/Skills/PlaceSkill/ && cd build && cmake .. && make -j$((`nproc`-2)) &&  mv libplaceSkill.so.1.0 ../libplaceSkill.so && \
-cd /usr/src/samy/configFiles/Skills/MoveToViaSkill/ && cd build && cmake .. && make -j$((`nproc`-2)) &&  mv libmoveToViaSkill.so.1.0 ../libmoveToViaSkill.so && \
 cd /usr/src/samy/configFiles/Skills/PickSkill/ && cd build && cmake .. && make -j$((`nproc`-2)) &&  mv libpickSkill.so.1.0 ../libpickSkill.so && \
 cd /usr/src/samy/configFiles/Skills/CheckStorageSkill/ && cd build && cmake .. && make -j$((`nproc`-2)) &&  mv libcheckStorageSkill.so.1.0 ../libcheckStorageSkill.so && \
 cd /usr/src/samy/configFiles/Skills/PlaceGridSkill/ && cd build && cmake .. && make -j$((`nproc`-2)) &&  mv libplaceGridSkill.so.1.0 ../libplaceGridSkill.so && \
