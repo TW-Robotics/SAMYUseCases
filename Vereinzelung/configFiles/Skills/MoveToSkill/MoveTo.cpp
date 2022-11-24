@@ -38,22 +38,44 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 	    moveTo.endPosition = pose;
 		moveTo.realTimeParameter = false;
 
-	    UA_CRCLCommandsParamsSetsUnionDataType commandsUnion1;
-	    commandsUnion1.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
-	    commandsUnion1.fields.moveToParamsSet = moveTo;
-        commands.push_back( commandsUnion1 );
-
-		UA_CRCL_TransSpeedAbsoluteDataType speedData;
-		speedData.setting = 3.0;
-
+	    UA_CRCLCommandsParamsSetsUnionDataType moveToUnion;
+	    moveToUnion.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
+	    moveToUnion.fields.moveToParamsSet = moveTo;
+        
 		UA_SetTransSpeedParamsSetDataType speed;
+		speed.name = UA_STRING( "SpeedTest" );
+		speed.realTimeParameter = false;
+		speed.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
 		speed.transSpeed.switchField = UA_CRCL_TRANSSPEEDDATATYPESWITCH_TRANSSPEEDABSOLUTEDATATYPE;
-		speed.transSpeed.fields.transSpeedAbsoluteDataType = speedData;
+		speed.transSpeed.fields.transSpeedAbsoluteDataType.id = 10;
+		speed.transSpeed.fields.transSpeedAbsoluteDataType.name = UA_STRING( "SpeedData" );
+		speed.transSpeed.fields.transSpeedAbsoluteDataType.setting = 2.0;
 
 		UA_CRCLCommandsParamsSetsUnionDataType speedUnion;
 		speedUnion.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_SETTRANSSPEEDPARAMSSET;
 		speedUnion.fields.setTransSpeedParamsSet = speed;
+		
+		UA_MessageParamsSetDataType message;
+		message.name =  UA_STRING( "Message" );
+		message.realTimeParameter = false;
+		message.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
+		message.message = UA_STRING( "This is a test message" );
+
+		UA_InitCanonParamsSetDataType c1;
+	    c1.name = UA_STRING( "UA_InitCanonParamsSetDataType" );
+	    c1.realTimeParameter = false;
+	    c1.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
+
+	    UA_CRCLCommandsParamsSetsUnionDataType messageUnion;
+	    messageUnion.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MESSAGEPARAMSSET;
+	    messageUnion.fields.messageParamsSet = message;
+
+
 		commands.push_back(speedUnion);
+		commands.push_back(messageUnion);
+		commands.push_back( moveToUnion );
+
+
         
         setCommandsBuffer( commands ); /* Sets the buffer of commands to be executed by the robot to be the previously created vector 
         of commands "commands". It does not send them yet nor modifies the CommandsBuffer variable in the SAMYCore. 

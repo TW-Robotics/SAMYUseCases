@@ -27,37 +27,38 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 					   UA_CRCL_FractionDataType const * const offset ){
 		// Copy the parameter in local variable
 		UA_CRCL_PoseDataType pose = *pickPose;
-		const UA_CRCL_FractionDataType offset_ = *offset;
+		UA_CRCL_FractionDataType offset_local = *offset;
 
 		// Create commands vector
 		std::vector<UA_CRCLCommandsParamsSetsUnionDataType> commands;
 
 		// Create CRCL command data type that the plugin will be able to proces
-		// This has to be one of the CRCL commands (not Primitive Data Type)
-		UA_MoveToParamsSetDataType moveToPick;
-		UA_MoveToParamsSetDataType moveToAbovePick;
-		UA_SetEndeffectorParamsSetDataType close;
-		UA_SetEndeffectorParamsSetDataType open;
-
+		// This has to be one with CRCL commands (not Primitive Data Type)
 		// Write the parameters in the CRCL command data type
+		std::cout << "Starting PickSkill\n\n" << std::endl;
+		
+		UA_MoveToParamsSetDataType moveToAbovePick;
 		moveToAbovePick.name = UA_STRING("moveToAbovePick");
 		moveToAbovePick.moveStraight = false;
 		moveToAbovePick.endPosition = pose;
-		moveToAbovePick.endPosition.point.z = pose.point.z + offset_.fraction;
+		moveToAbovePick.endPosition.point.z = pose.point.z + offset_local.fraction;
 		moveToAbovePick.realTimeParameter = false;
 	    moveToAbovePick.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
 
+		UA_MoveToParamsSetDataType moveToPick;
 		moveToPick.name = UA_STRING("moveToPick");
 		moveToPick.moveStraight = false;
 		moveToPick.endPosition = pose;
 	    moveToPick.realTimeParameter = false;
 	    moveToPick.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
 
+		UA_SetEndeffectorParamsSetDataType close;
 		close.name = UA_STRING("closeGripper");
 		close.setting.fraction = 1.0; // TODO Check if 1 is realy closed!!!!
 		close.setting.fractionMin = 0.0;
 		close.setting.fractionMax = 1.0;
 
+		UA_SetEndeffectorParamsSetDataType open;
 		open.name = UA_STRING("openGripper");
 		open.setting.fraction = 0.0;
 		open.setting.fractionMin = 0.0;
@@ -81,10 +82,10 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 	    openUnion.fields.setEndeffectorParamsSet = open;
 
 		// Add commadns to the commands vector
-	    commands.emplace_back( moveToAbovePickUnion );
-		//commands.emplace_back( openUnion );
+	    commands.push_back( moveToAbovePickUnion );
+		commands.emplace_back( openUnion );
 		commands.emplace_back( moveToPickUnion );
-		//commands.push_back( closeUnion );
+		commands.push_back( closeUnion );
 		commands.emplace_back( moveToAbovePickUnion );
 
 
@@ -95,5 +96,6 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
         sendCommandsAndWait(); /*Writes the values currently stored for the robot in the CommandsBuffer node of the robot in the SAMYCore, 
 		sets the node CommandStateBuffer to value PROCESSING_PENDING, and waits until the value of CommandStateBuffer is changed 
 		(usually by the SAMYPlugin) either to PROCESSING_FAILED or to AWAITING. */
+		std::cout << "Finished PickSkill\n\n" << std::endl;
 		}
 }

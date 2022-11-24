@@ -8,7 +8,7 @@ import os
 def create_startsh(foldername):
 	
 	template="""
-cd /usr/src/samy/configFiles/Skills/{{data}}/ && cd build && cmake .. && make -j$((`nproc`-2)) &&  mv lib{{data}}.so.1.0 ../lib{{data}}.so && """
+cd /usr/src/samy/configFiles/Skills/{{data}}/ && make -p build && cd build && cmake .. && make -j$((`nproc`-2)) &&  mv lib{{data}}.so.1.0 ../lib{{data}}.so && """
 	out = Template(template)
 	filepath = "../start.sh"
 	try:
