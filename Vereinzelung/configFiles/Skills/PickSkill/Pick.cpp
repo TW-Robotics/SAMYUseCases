@@ -29,6 +29,9 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 		UA_CRCL_PoseDataType pose = *pickPose;
 		UA_CRCL_FractionDataType offset_local = *offset;
 
+		std::cout << "pose z value: " << pose.point.z << std::endl;
+		std::cout << "fraction value: " << offset_local.fraction << std::endl;
+
 		// Create commands vector
 		std::vector<UA_CRCLCommandsParamsSetsUnionDataType> commands;
 
@@ -44,6 +47,7 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 		moveToAbovePick.endPosition.point.z = pose.point.z + offset_local.fraction;
 		moveToAbovePick.realTimeParameter = false;
 	    moveToAbovePick.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
+		std::cout << "MoveToAbovePick z value: " << moveToAbovePick.endPosition.point.z << std::endl;
 
 		UA_MoveToParamsSetDataType moveToPick;
 		moveToPick.name = UA_STRING("moveToPick");
@@ -83,10 +87,10 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 
 		// Add commadns to the commands vector
 	    commands.push_back( moveToAbovePickUnion );
-		commands.emplace_back( openUnion );
-		commands.emplace_back( moveToPickUnion );
+		commands.push_back( openUnion );
+		commands.push_back( moveToPickUnion );
 		commands.push_back( closeUnion );
-		commands.emplace_back( moveToAbovePickUnion );
+		commands.push_back( moveToAbovePickUnion );
 
 
 		setCommandsBuffer( commands ); /* Sets the buffer of commands to be executed by the robot to be the previously created vector 

@@ -1,4 +1,4 @@
-#include <MoveTo.h>
+#include <MoveTo2.h>
 #include <skillsScriptingAPI.h>
 #include <functional>
 #include <iostream>
@@ -22,12 +22,11 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 	I am planning to write a compiler-preprocessor based on Clang for automating these stuff so you can write code without these artifacts, 
 	but for the moment should be fine like this.
     */
-    void moveToSkill( UA_CRCL_PoseDataType const * const goalPose,
+    void moveTo2Skill( UA_CRCL_PoseDataType const * const goalPose,
 					  UA_CRCL_ParameterSettingDataType const * const moveType ){
         UA_CRCL_PoseDataType pose = *goalPose;
 		UA_CRCL_ParameterSettingDataType move = *moveType;
         std::vector<UA_CRCLCommandsParamsSetsUnionDataType> commands;
-		std::cout << "pose z value: " << pose.point.z << std::endl;
 
 	    UA_MoveToParamsSetDataType moveTo;
 	    moveTo.name = UA_STRING( "UA_MoveToParamsSetDataType" );

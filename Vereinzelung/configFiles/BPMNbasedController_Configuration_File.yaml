@@ -4,6 +4,11 @@ States:
     type: "String"
     values:
       - Ready
+  Controller_Ready:
+    key: "Robot_UR5Plugin_CurrentState"
+    type: "String"
+    values:
+      - Ready
   # OpenMan_Ready:
   #   key: "Robot_OpenMan_CurrentState"
   #   type: "String"

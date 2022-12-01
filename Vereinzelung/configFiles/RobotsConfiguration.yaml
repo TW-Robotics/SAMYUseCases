@@ -40,10 +40,11 @@ Robots:
   - Robot:
       Name: UR5Plugin
       ID: 12344
-      Address: "10.0.0.27"
+      Address: "192.168.56.101"
       OPCUARoboticsFile: Ur5.xml
       Skills:
         - MoveToSkill
+        - MoveTo2Skill
         - PickSkill
         - PlaceSkill
         - PickAndPlaceSkill

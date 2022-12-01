@@ -77,10 +77,10 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 	    openUnion.fields.setEndeffectorParamsSet = open;
 
 		// Add commadns to the commands vector
-	    commands.emplace_back( moveToAbovePlaceUnion );
-		commands.emplace_back( moveToPlaceUnion );
-		commands.emplace_back( openUnion );
-		commands.emplace_back( moveToAbovePlaceUnion );
+	    commands.push_back( moveToAbovePlaceUnion );
+		commands.push_back( moveToPlaceUnion );
+		commands.push_back( openUnion );
+		commands.push_back( moveToAbovePlaceUnion );
 
 
 		setCommandsBuffer( commands ); /* Sets the buffer of commands to be executed by the robot to be the previously created vector 

@@ -3,7 +3,7 @@
 cmake_minimum_required(VERSION 3.0)
 
 set (PROJECT_VERSION "1.0")
-set (LIBRARY_NAME "moveCylinderSkill")
+set (LIBRARY_NAME "moveTo2Skill")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -13,7 +13,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_definitions(-w)
 # Set the variable PROJ_NAME to whatever your library's name is, PROJECT_VERSION should be a version string like "0.1"
-project(MoveCylinderSkill VERSION ${PROJECT_VERSION})
+project(MoveTo2Skill VERSION ${PROJECT_VERSION})
 
 find_package(open62541 1.2 REQUIRED COMPONENTS FullNamespace)
 
@@ -28,7 +28,7 @@ include_SAMYCore_Library_headers()
 
 target_sources(${LIBRARY_NAME}
   PUBLIC
-  ${CMAKE_CURRENT_SOURCE_DIR}/MoveCylinder.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/MoveTo2.cpp
 )
 
 # This will name your output .so files "libsomething.1.0" which is pretty useful

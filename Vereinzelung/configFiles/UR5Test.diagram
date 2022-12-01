@@ -18,11 +18,11 @@
     <param key="goalPose" type="data" >PlaceTop</param>
     <param key="moveType" type="data" >MoveJ</param>
   </SamyBpmnModel:Process>
-  <SamyBpmnModel:Process id="place_id_5" name="UR5Plugin:MoveToSkill">
+  <SamyBpmnModel:Process id="place_id_5" name="Controller:WriteInformationSource">
     <incoming>trans_id_4</incoming>
     <outgoing>trans_id_5</outgoing>
-    <param key="goalPose" type="data" >StationBottom</param>
-    <param key="moveType" type="data" >MoveJ</param>
+    <param key="name" >GridPosition</param>
+    <param key="value" >1</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:VariableManipulationTable id="place_id_6" name="Loop Counter">
     <incoming>trans_id_5</incoming>

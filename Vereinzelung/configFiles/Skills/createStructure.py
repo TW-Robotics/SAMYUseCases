@@ -8,12 +8,12 @@ import os
 def create_startsh(foldername):
 	
 	template="""
-cd /usr/src/samy/configFiles/Skills/{{data}}/ && cd build && cmake .. && make -j$((`nproc`-2)) &&  mv lib{{data}}.so.1.0 ../lib{{data}}.so && """
+cd /usr/src/samy/configFiles/Skills/{{data}}/ && make -p build && cd build && cmake .. && make -j$((`nproc`-2)) &&  mv lib{{name}}.so.1.0 ../lib{{name}}.so && """
 	out = Template(template)
 	filepath = "../start.sh"
 	try:
 		start_file = open(filepath,"a")
-		start_file.write(out.render(data = foldername[2:]))
+		start_file.write(out.render(data = foldername[2:], name = foldername[2].lower() + foldername[3:]))
 		start_file.write("\\")
 		start_file.close
 	except:
@@ -25,7 +25,7 @@ def create_cmake(foldername):
 cmake_minimum_required(VERSION 3.0)
 
 set (PROJECT_VERSION "1.0")
-set (LIBRARY_NAME "{{foldername}}")
+set (LIBRARY_NAME "{{SAMYSkillConfig.SkillName[0].lower() + SAMYSkillConfig.SkillName[1:]}}")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -112,7 +112,7 @@ extern "C" {
 
 def create_cpp(foldername):
 	
-	template = """#include <{{ foldername }}.h>
+	template = """#include <{{ SAMYSkillConfig.EntryFile[:-4] }}.h>
 #include <skillsScriptingAPI.h>
 #include <functional>
 #include <iostream>
