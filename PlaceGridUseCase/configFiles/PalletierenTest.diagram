@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SamyBpmnModel="http://www.example.org/SamyBpmnModel" xmlns:al="http://eclipse.org/graphiti/mm/algorithms" xmlns:pi="http://eclipse.org/graphiti/mm/pictograms">
+  <SamyBpmnModel:Start id="place_id_1">
+    <outgoing>trans_id_4</outgoing>
+  </SamyBpmnModel:Start>
+  <SamyBpmnModel:End id="place_id_2">
+    <incoming>trans_id_3</incoming>
+  </SamyBpmnModel:End>
+  <SamyBpmnModel:VariableContainer id="v_cont_id_1"/>
+  <SamyBpmnModel:Process id="place_id_3" name="RobotUR5:MoveSkill">
+    <incoming>trans_id_4</incoming>
+    <outgoing>trans_id_5</outgoing>
+    <param key="goalPose" type="data" >homePose</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Process id="place_id_4" name="RobotUR5:PlaceGridSkill">
+    <incoming>trans_id_6</incoming>
+    <outgoing>trans_id_3</outgoing>
+    <param key="startPose" type="data" >startPose</param>
+    <param key="pickPose" type="data" >pickPose</param>
+    <param key="slotsX" type="data" >slotsX</param>
+    <param key="slotsY" type="data" >slotsY</param>
+    <param key="offsetX" type="data" >offsetX</param>
+    <param key="offsetY" type="data" >offsetY</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Transition id="trans_id_3" sourceRef="place_id_4" targetRef="place_id_2"/>
+  <SamyBpmnModel:Process id="place_id_5" name="RobotUR5:MoveSkill">
+    <incoming>trans_id_5</incoming>
+    <outgoing>trans_id_6</outgoing>
+    <param key="goalPose" type="data" >testPose</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Transition id="trans_id_4" sourceRef="place_id_1" targetRef="place_id_3"/>
+  <SamyBpmnModel:Transition id="trans_id_5" sourceRef="place_id_3" targetRef="place_id_5"/>
+  <SamyBpmnModel:Transition id="trans_id_6" sourceRef="place_id_5" targetRef="place_id_4"/>
+</xmi:XMI>

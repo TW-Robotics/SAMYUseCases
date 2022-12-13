@@ -1,0 +1,18 @@
+Robots:
+  - Robot:
+      Name: RobotUR5
+      ID: 1234
+      Skills:
+        - MoveSkill
+        - PickSkill
+        - PlaceSkill
+        - PlaceGridSkill
+      Address: "192.168.56.101" # "192.168.0.101" 
+      Workobject:
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+        - 0.0
+
