@@ -1,0 +1,12 @@
+Robots:
+  - Robot:
+      Name: Doosan
+      ID: 1234
+      Skills:
+        - MoveSkill
+        - PickSkill
+        - PlaceSkill
+        - CheckPalletSkill
+        - PlaceGridSkill
+      Address: "192.168.0.101" # "192.168.0.101" 
+

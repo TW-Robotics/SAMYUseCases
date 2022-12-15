@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SamyBpmnModel="http://www.example.org/SamyBpmnModel" xmlns:al="http://eclipse.org/graphiti/mm/algorithms" xmlns:pi="http://eclipse.org/graphiti/mm/pictograms">
+  <SamyBpmnModel:Start id="place_id_1">
+    <outgoing>trans_id_1</outgoing>
+  </SamyBpmnModel:Start>
+  <SamyBpmnModel:End id="place_id_2">
+    <incoming>trans_id_8</incoming>
+  </SamyBpmnModel:End>
+  <SamyBpmnModel:Process id="place_id_3" name="Doosan:MoveSkill">
+    <incoming>trans_id_1</incoming>
+    <outgoing>trans_id_2</outgoing>
+    <param key="goalPose" type="data" >homePose</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:LoopbackGateway id="place_id_4">
+    <incoming>trans_id_2</incoming>
+    <incoming>trans_id_5</incoming>
+    <outgoing>trans_id_3</outgoing>
+  </SamyBpmnModel:LoopbackGateway>
+  <SamyBpmnModel:ExclusiveGateway id="place_id_5" keyVariable="LichtschrankePalletDoosan">
+    <incoming>trans_id_4</incoming>
+    <outgoing>trans_id_5</outgoing>
+    <outgoing>trans_id_6</outgoing>
+  </SamyBpmnModel:ExclusiveGateway>
+  <SamyBpmnModel:Process id="place_id_6" name="Doosan:CheckPalletSkill">
+    <incoming>trans_id_3</incoming>
+    <outgoing>trans_id_4</outgoing>
+    <param key="dummy" type="data" >homePose</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Transition id="trans_id_1" sourceRef="place_id_1" targetRef="place_id_3"/>
+  <SamyBpmnModel:Transition id="trans_id_2" sourceRef="place_id_3" targetRef="place_id_4"/>
+  <SamyBpmnModel:Transition id="trans_id_3" sourceRef="place_id_4" targetRef="place_id_6"/>
+  <SamyBpmnModel:Transition id="trans_id_4" sourceRef="place_id_6" targetRef="place_id_5"/>
+  <SamyBpmnModel:Transition id="trans_id_5" sourceRef="place_id_5" targetRef="place_id_4">
+    <condition>0</condition>
+  </SamyBpmnModel:Transition>
+  <SamyBpmnModel:Process id="place_id_7" name="Doosan:PlaceGridSkill">
+    <incoming>trans_id_6</incoming>
+    <outgoing>trans_id_7</outgoing>
+    <param key="startPose" type="data" >startPose</param>
+    <param key="pickPose" type="data" >pickPose</param>
+    <param key="slotsX" type="data" >slotsX</param>
+    <param key="slotsY" type="data" >slotsY</param>
+    <param key="offsetX" type="data" >offsetX</param>
+    <param key="offsetY" type="data" >offsetY</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Transition id="trans_id_6" sourceRef="place_id_5" targetRef="place_id_7">
+    <condition>1</condition>
+  </SamyBpmnModel:Transition>
+  <SamyBpmnModel:Process id="place_id_8" name="Doosan:MoveSkill">
+    <incoming>trans_id_7</incoming>
+    <outgoing>trans_id_8</outgoing>
+    <param key="goalPose" type="data" >homePose</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Transition id="trans_id_7" sourceRef="place_id_7" targetRef="place_id_8"/>
+  <SamyBpmnModel:Transition id="trans_id_8" sourceRef="place_id_8" targetRef="place_id_2"/>
+  <SamyBpmnModel:VariableContainer id="v_cont_id_1">
+    <!-- <variables name="LichtschrankePalletDoosan">
+      <values key="0" value="0"/>
+      <values key="1" value="1"/>
+    </variables> -->
+  </SamyBpmnModel:VariableContainer>
+</xmi:XMI>

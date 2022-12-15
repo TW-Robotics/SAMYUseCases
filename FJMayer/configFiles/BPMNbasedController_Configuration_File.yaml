@@ -1,0 +1,11 @@
+States:
+  Doosan_Ready:
+    key: "Robot_Doosan_CurrentState"
+    type: "String"
+    values:
+      - Ready
+InformationSources:
+  LichtschrankePalletDoosan:
+    key: InformationSource_LichtschrankePalletDoosan_0
+    type: Boolean
+

@@ -1,0 +1,8 @@
+SAMYSkillConfig:
+   SkillName: "MoveSkill"
+   Language: "C++"
+   EntryFile: "move.cpp"
+   EntryFunction: "moveSkill"
+   Parameters:
+      - Name: "goalPose"
+        DataType: UA_CRCL_PoseDataType

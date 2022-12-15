@@ -1,0 +1,8 @@
+SAMYSkillConfig:
+   SkillName: "CheckPalletSkill"
+   Language: "C++"
+   EntryFile: "checkPallet.cpp"
+   EntryFunction: "checkPalletSkill"
+   Parameters:
+      - Name: "dummy"
+        DataType: UA_CRCL_PoseDataType

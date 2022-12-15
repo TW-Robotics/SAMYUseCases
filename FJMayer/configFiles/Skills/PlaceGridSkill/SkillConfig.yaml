@@ -1,0 +1,18 @@
+SAMYSkillConfig:
+   SkillName: "PlaceGridSkill"
+   Language: "C++"
+   EntryFile: "placeGrid.cpp"
+   EntryFunction: "placeGridSkill"
+   Parameters:
+      - Name: "startPose"
+        DataType: UA_CRCL_PoseDataType
+      - Name: "pickPose"
+        DataType: UA_CRCL_PoseDataType
+      - Name: "slotsX"
+        DataType: UA_CRCL_FractionDataType
+      - Name: "slotsY"
+        DataType: UA_CRCL_FractionDataType
+      - Name: "offsetX"
+        DataType: UA_CRCL_FractionDataType
+      - Name: "offsetY"
+        DataType: UA_CRCL_FractionDataType

@@ -1,0 +1,9 @@
+InformationSources:
+  - InformationSource:
+      InformationSourceName: "CurrentPoseDoosan"
+      DataTypes:
+        - CRCL_PoseDataType
+  - InformationSource:
+      InformationSourceName: "LichtschrankePalletDoosan"
+      DataTypes:
+        - Boolean
