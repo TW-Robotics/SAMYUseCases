@@ -1,0 +1,8 @@
+SAMYSkillConfig:
+   SkillName: "PlaceSkill"
+   Language: "C++"
+   EntryFile: "place.cpp"
+   EntryFunction: "placeSkill"
+   Parameters:
+      - Name: "placePose"
+        DataType: UA_CRCL_PoseDataType

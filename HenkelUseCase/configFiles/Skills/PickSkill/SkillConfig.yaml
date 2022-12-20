@@ -1,0 +1,8 @@
+SAMYSkillConfig:
+   SkillName: "PickSkill"
+   Language: "C++"
+   EntryFile: "pick.cpp"
+   EntryFunction: "pickSkill"
+   Parameters:
+      - Name: "pickPose"
+        DataType: UA_CRCL_PoseDataType

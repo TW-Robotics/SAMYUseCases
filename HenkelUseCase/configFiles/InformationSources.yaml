@@ -1,0 +1,9 @@
+InformationSources:
+  - InformationSource:
+      InformationSourceName: "CameraPose"
+      DataTypes:
+        - CRCL_PoseDataType
+  - InformationSource:
+      InformationSourceName: "CameraReady"
+      DataTypes:
+        - Boolean

@@ -1,0 +1,22 @@
+version: "3.3"
+services:
+  core:
+    image: core
+    command: /usr/src/samy/configFiles/start.sh
+    ports:
+      - 4840:4840 
+    volumes:
+      - ./configFiles:/usr/src/samy/configFiles
+  ur5:
+    image: ur5-plugin
+    command: python3 main.py core RobotUR5
+    tty: true
+    volumes:
+      - ./configFiles:/usr/src/samy/configFiles
+  controller:
+    image: bpmn-controller
+    command: python3 Tests/startBPMNController.py core HenkelUseCase.diagram BPMNbasedController_Configuration_File.yaml
+    tty: true
+    volumes:
+      - ./configFiles:/usr/src/samy/configFiles
+

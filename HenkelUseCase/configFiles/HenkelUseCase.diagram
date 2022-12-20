@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SamyBpmnModel="http://www.example.org/SamyBpmnModel" xmlns:al="http://eclipse.org/graphiti/mm/algorithms" xmlns:pi="http://eclipse.org/graphiti/mm/pictograms">
+  <SamyBpmnModel:Start id="place_id_1">
+    <outgoing>trans_id_16</outgoing>
+  </SamyBpmnModel:Start>
+  <SamyBpmnModel:End id="place_id_2">
+    <incoming>trans_id_21</incoming>
+  </SamyBpmnModel:End>
+  <SamyBpmnModel:VariableContainer id="v_cont_id_1">
+    <variables name="counter">
+      <values key="0" value="0"/>
+      <values key="1" value="1"/>
+      <values key="2" value="2"/>
+      <values key="3" value="3"/>
+      <values key="4" value="4"/>
+    </variables>
+  </SamyBpmnModel:VariableContainer>
+  <SamyBpmnModel:Process id="place_id_3" name="RobotUR5:MoveSkill">
+    <incoming>trans_id_16</incoming>
+    <outgoing>trans_id_25</outgoing>
+    <param key="goalPose" type="data" >homePose</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Process id="place_id_4" name="RobotUR5:PickSkill">
+    <incoming>trans_id_25</incoming>
+    <outgoing>trans_id_3</outgoing>
+    <param key="pickPose" type="data" >pickPose1</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Process id="place_id_5" name="RobotUR5:PlaceSkill">
+    <incoming>trans_id_3</incoming>
+    <outgoing>trans_id_22</outgoing>
+    <param key="placePose" type="data" >placePose1</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Process id="place_id_6" name="RobotUR5:PickSkill">
+    <incoming>trans_id_22</incoming>
+    <outgoing>trans_id_4</outgoing>
+    <param key="pickPose" type="data" >pickPose2</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Process id="place_id_7" name="RobotUR5:PlaceSkill">
+    <incoming>trans_id_4</incoming>
+    <outgoing>trans_id_23</outgoing>
+    <param key="placePose" type="data" >placePose2</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Transition id="trans_id_3" sourceRef="place_id_4" targetRef="place_id_5"/>
+  <SamyBpmnModel:Transition id="trans_id_4" sourceRef="place_id_6" targetRef="place_id_7"/>
+  <SamyBpmnModel:Process id="place_id_10" name="RobotUR5:PickSkill">
+    <incoming>trans_id_23</incoming>
+    <outgoing>trans_id_8</outgoing>
+    <param key="pickPose" type="data" >pickPose3</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Process id="place_id_11" name="RobotUR5:PlaceSkill">
+    <incoming>trans_id_8</incoming>
+    <outgoing>trans_id_24</outgoing>
+    <param key="placePose" type="data" >placePose3</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Process id="place_id_13" name="RobotUR5:PickSkill">
+    <incoming>trans_id_24</incoming>
+    <outgoing>trans_id_9</outgoing>
+    <param key="pickPose" type="data" >pickPose4</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Process id="place_id_14" name="RobotUR5:PlaceSkill">
+    <incoming>trans_id_9</incoming>
+    <outgoing>trans_id_26</outgoing>
+    <param key="placePose" type="data" >placePose4</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Transition id="trans_id_8" sourceRef="place_id_10" targetRef="place_id_11"/>
+  <SamyBpmnModel:Transition id="trans_id_9" sourceRef="place_id_13" targetRef="place_id_14"/>
+  <SamyBpmnModel:Transition id="trans_id_16" sourceRef="place_id_1" targetRef="place_id_3"/>
+  <SamyBpmnModel:Process id="place_id_16" name="RobotUR5:MoveSkill">
+    <incoming>trans_id_26</incoming>
+    <outgoing>trans_id_21</outgoing>
+    <param key="goalPose" type="data" >homePose</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Transition id="trans_id_21" sourceRef="place_id_16" targetRef="place_id_2"/>
+  <SamyBpmnModel:Transition id="trans_id_22" sourceRef="place_id_5" targetRef="place_id_6"/>
+  <SamyBpmnModel:Transition id="trans_id_23" sourceRef="place_id_7" targetRef="place_id_10"/>
+  <SamyBpmnModel:Transition id="trans_id_24" sourceRef="place_id_11" targetRef="place_id_13"/>
+  <SamyBpmnModel:Transition id="trans_id_25" sourceRef="place_id_3" targetRef="place_id_4"/>
+  <SamyBpmnModel:Transition id="trans_id_26" sourceRef="place_id_14" targetRef="place_id_16"/>
+</xmi:XMI>
