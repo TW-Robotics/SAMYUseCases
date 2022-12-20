@@ -32,15 +32,15 @@ DataBase:
     xAxis: !!python/object:CRCL_DataTypes.CRCL_VectorDataType
       id: 0
       name: testX
-      i: 0.976
-      j: 0.132
-      k: 0.172
+      i: 0
+      j: 1
+      k: 0
     zAxis: !!python/object:CRCL_DataTypes.CRCL_VectorDataType
       id: 0
       name: testZ
-      i: -0.190
-      j: 0.143
-      k: 0.971
+      i: 0
+      j: 0
+      k: -1
   - !!python/object:CRCL_DataTypes.CRCL_PoseDataType
     id: 0
     name: startPose
@@ -53,15 +53,15 @@ DataBase:
     xAxis: !!python/object:CRCL_DataTypes.CRCL_VectorDataType
       id: 0
       name: startX
-      i: 0.976
-      j: 0.132
-      k: 0.172
+      i: 0
+      j: 1
+      k: 0
     zAxis: !!python/object:CRCL_DataTypes.CRCL_VectorDataType
       id: 0
       name: startZ
-      i: -0.190
-      j: 0.143
-      k: 0.971
+      i: 0
+      j: 0
+      k: -1
   - !!python/object:CRCL_DataTypes.CRCL_PoseDataType
     id: 0
     name: pickPose
@@ -85,7 +85,7 @@ DataBase:
       k: -1
   - !!python/object:CRCL_DataTypes.CRCL_FractionDataType
     name: "offsetX"
-    fraction: 0.6
+    fraction: 0.62
     fractionMax: 10.0
     fractionMin: 0.0
   - !!python/object:CRCL_DataTypes.CRCL_FractionDataType

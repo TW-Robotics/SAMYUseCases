@@ -30,80 +30,16 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 		 				UA_CRCL_FractionDataType const * const offsetY
 						)
 		{
-
-
-		// Temp solution
-		UA_CRCL_PoseDataType startPose_local = UA_CRCL_PoseDataType();
-		startPose_local.name = UA_STRING("startPose");
-		startPose_local.id = 10;
-		startPose_local.point.id = 11;
-		startPose_local.point.name = UA_STRING("point");
-		startPose_local.point.x = -0.3185;
-		startPose_local.point.y = 0.6794;
-		startPose_local.point.z = -0.040;
-		startPose_local.xAxis.id = 12;
-		startPose_local.xAxis.name = UA_STRING("xAxis");
-		startPose_local.xAxis.i = 0;
-		startPose_local.xAxis.j = 1;
-		startPose_local.xAxis.k = 0;
-		startPose_local.zAxis.id = 14;
-		startPose_local.zAxis.name = UA_STRING("zAxis");
-		startPose_local.zAxis.i = 0;
-		startPose_local.zAxis.j = 0;
-		startPose_local.zAxis.k = -1;
-
-		UA_CRCL_PoseDataType savePose_local = UA_CRCL_PoseDataType();
-		savePose_local.name = UA_STRING("savePose");
-		savePose_local.id = 10;
-		savePose_local.point.id = 11;
-		savePose_local.point.name = UA_STRING("point");
-		savePose_local.point.x = 0.5134;
-		savePose_local.point.y = 0.6322;
-		savePose_local.point.z = 1.0361;
-		savePose_local.xAxis.id = 12;
-		savePose_local.xAxis.name = UA_STRING("xAxis");
-		savePose_local.xAxis.i = 0;
-		savePose_local.xAxis.j = 1;
-		savePose_local.xAxis.k = 0;
-		savePose_local.zAxis.id = 14;
-		savePose_local.zAxis.name = UA_STRING("zAxis");
-		savePose_local.zAxis.i = 0;
-		savePose_local.zAxis.j = 0;
-		savePose_local.zAxis.k = -1;
-
-		UA_CRCL_PoseDataType pickPose_local = UA_CRCL_PoseDataType();
-		pickPose_local.name = UA_STRING("pickPose");
-		pickPose_local.id = 10;
-		pickPose_local.point.id = 11;
-		pickPose_local.point.name = UA_STRING("point");
-		pickPose_local.point.x = 1.0696;
-		pickPose_local.point.y = 0.1261;
-		pickPose_local.point.z = 0.6846;
-		pickPose_local.xAxis.id = 12;
-		pickPose_local.xAxis.name = UA_STRING("xAxis");
-		pickPose_local.xAxis.i = 1;
-		pickPose_local.xAxis.j = 0;
-		pickPose_local.xAxis.k = 0;
-		pickPose_local.zAxis.id = 14;
-		pickPose_local.zAxis.name = UA_STRING("zAxis");
-		pickPose_local.zAxis.i = 0;
-		pickPose_local.zAxis.j = 0;
-		pickPose_local.zAxis.k = -1;
 			
 		std::cout  << "Start placeGridSkill\n\n\n" << std::endl;
 		// Copy the parameter in local variables
-		//UA_CRCL_PoseDataType startPose_local = *startPose;
-		//UA_CRCL_PoseDataType pickPose_local = *pickPose;
-		//UA_CRCL_PoseDataType savePose_local = *savePose;
+		UA_CRCL_PoseDataType startPose_local = *startPose;
+		UA_CRCL_PoseDataType pickPose_local = *pickPose;
+		UA_CRCL_PoseDataType savePose_local = *savePose;
 		UA_CRCL_FractionDataType slotsX_local = *slotsX;
 		UA_CRCL_FractionDataType slotsY_local = *offsetX;
 		UA_CRCL_FractionDataType offsetX_local = *slotsY;
 		UA_CRCL_FractionDataType offsetY_local = *offsetY;
-
-		slotsX_local.fraction = 2;
-		slotsY_local.fraction = 2;
-		offsetX_local.fraction = 0.62;
-		offsetY_local.fraction = 0.42;
 			
 		std::cout << "OffsetX: " << offsetX_local.fraction << " | OffsetY: " << offsetY_local.fraction << std::endl;
 		std::cout << "slotsX: " << slotsX_local.fraction << " | slotsY: " << slotsY_local.fraction << std::endl;
@@ -257,11 +193,6 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 				moveToAbove.endPosition.point.x = point_save_x;
 				moveToAbove.endPosition.point.y = point_save_y;
 
-				//setCommandsBuffer( commands );
-				//std::cout << "send commands and wait" << std::endl;
-				//sendCommandsAndWait();
-				//std::cout << "Finished processing one set of commands" << std::endl;
-				//commands.clear();
 			}
 		}
 		std::cout << "All commands added to buffer" << std::endl;
