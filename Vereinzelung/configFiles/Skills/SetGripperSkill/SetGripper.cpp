@@ -27,13 +27,17 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
         UA_CRCL_FractionDataType gripperPosition = *setting;
         std::vector<UA_CRCLCommandsParamsSetsUnionDataType> commands;
 
-		UA_SetEndeffectorParamsSetDataType setEndeffector;
-		setEndeffector.setting = gripperPosition;
+		UA_SetEndeffectorParamsSetDataType set;
+		set.name = UA_STRING("closeGripper");
+		set.realTimeParameter = false;
+		set.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
+		set.setting = gripperPosition;
 
-	    UA_CRCLCommandsParamsSetsUnionDataType commandsUnion1;
-	    commandsUnion1.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_SETENDEFFECTORPARAMSSET;
-	    commandsUnion1.fields.setEndeffectorParamsSet = setEndeffector;
-        commands.emplace_back( commandsUnion1 );
+		UA_CRCLCommandsParamsSetsUnionDataType setUnion;
+	    setUnion.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_SETENDEFFECTORPARAMSSET;
+	    setUnion.fields.setEndeffectorParamsSet = set;
+
+		commands.push_back(setUnion);
         
         setCommandsBuffer( commands ); /* Sets the buffer of commands to be executed by the robot to be the previously created vector 
         of commands "commands". It does not send them yet nor modifies the CommandsBuffer variable in the SAMYCore. 

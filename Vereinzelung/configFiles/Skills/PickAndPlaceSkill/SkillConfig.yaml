@@ -8,5 +8,7 @@ SAMYSkillConfig:
         DataType: UA_CRCL_PoseDataType
       - Name: "placePose"
         DataType: UA_CRCL_PoseDataType
+      - Name: "midPose"
+        DataType: UA_CRCL_PoseDataType
       - Name: "offset"
         DataType: UA_CRCL_FractionDataType

@@ -9,7 +9,7 @@
   <SamyBpmnModel:Process id="place_id_3" name="UR5Plugin:MoveToSkill">
     <incoming>trans_id_2</incoming>
     <outgoing>trans_id_3</outgoing>
-    <param key="goalPose" type="data" >PlaceCamera</param>
+    <param key="goalPose" type="data" >UR5-Home</param>
     <param key="moveType" type="data" >MoveJ</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Process id="place_id_4" name="UR5Plugin:MoveToSkill">

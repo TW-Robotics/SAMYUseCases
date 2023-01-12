@@ -399,7 +399,7 @@
   <SamyBpmnModel:Process id="place_id_4" name="RobotUR5:MoveSkill">
     <incoming>trans_id_3</incoming>
     <outgoing>trans_id_21</outgoing>
-    <param key='1' type="data" >MoveToHome</param>
+    <param key='goalPose' type="data" >MoveToHome</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Process id="place_id_7" name="RobotUR5:GripperApproach">
     <incoming>trans_id_21</incoming>
@@ -409,8 +409,7 @@
   <SamyBpmnModel:Process id="place_id_9" name="RobotUR5:GripperAttach">
     <incoming>trans_id_22</incoming>
     <outgoing>trans_id_10</outgoing>
-    <param key="1" type="data" >MoveToPick</param>
-    <param key="2" type="data" >MoveToPickAbove</param>
+    <param key="pose" type="data" >MoveToPick</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:ExclusiveGateway id="place_id_10" keyVariable="object_count">
     <incoming>trans_id_10</incoming>
@@ -420,12 +419,12 @@
   <SamyBpmnModel:Process id="place_id_11" name="RobotUR5:MoveSkill">
     <incoming>trans_id_11</incoming>
     <outgoing>trans_id_20</outgoing>
-    <param key="1" type="data" >MoveToPlaceLeft</param>
+    <param key="goalPose" type="data" >MoveToPlaceLeft</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:Process id="place_id_12" name="RobotUR5:MoveSkill">
     <incoming>trans_id_12</incoming>
     <outgoing>trans_id_13</outgoing>
-    <param key='1' type="data" >MoveToPlaceRight</param>
+    <param key='goalPose' type="data" >MoveToPlaceRight</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:ExclusiveGateway id="place_id_13">
     <incoming>trans_id_13</incoming>
@@ -435,7 +434,7 @@
   <SamyBpmnModel:Process id="place_id_14" name="RobotUR5:MoveSkill">
     <incoming>trans_id_15</incoming>
     <outgoing>trans_id_16</outgoing>
-    <param key="1" type="data" >MoveToPlaceAbove</param>
+    <param key="goalPose" type="data" >MoveToPlaceAbove</param>
   </SamyBpmnModel:Process>
   <SamyBpmnModel:ExclusiveGateway id="place_id_15" keyVariable="object_count">
     <incoming>trans_id_16</incoming>

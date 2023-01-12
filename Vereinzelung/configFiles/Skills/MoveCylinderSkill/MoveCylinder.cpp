@@ -24,16 +24,28 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 	but for the moment should be fine like this.
     */
     void moveCylinderSkill( UA_CRCL_ActuateJointDataType const * const joint){
-		UA_CRCL_ActuateJointDataType cylinder[1];
-		cylinder[0] = *joint;
+		UA_CRCL_ActuateJointDataType cylinder_local = *joint;
+		//cylinder[0] = *joint;
         std::vector<UA_CRCLCommandsParamsSetsUnionDataType> commands;
+
+		UA_CRCL_JointPositionToleranceSettingDataType setting;
+		setting.id = 2;
+		setting.name =  UA_STRING( "ActuateJoint" );;
+		setting.jointNumber = 10;
+
+		UA_CRCL_JointPositionsTolerancesDataType jointTolerances;
+		jointTolerances.id = 0;
+		jointTolerances.name =  UA_STRING( "ActuateJoint" );;
+		jointTolerances.settingSize = 0;
+		jointTolerances.setting = NULL;
 
 	    UA_ActuateJointsParamsSetDataType actuateJoint;
 	    actuateJoint.name = UA_STRING( "ActuateJoint" );
 	    actuateJoint.realTimeParameter = false;
 	    actuateJoint.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
 		actuateJoint.actuateJointSize = 1;
-		actuateJoint.actuateJoint = cylinder;
+		actuateJoint.actuateJoint = &cylinder_local;
+		actuateJoint.jointTolerances = jointTolerances;
 
 	    UA_CRCLCommandsParamsSetsUnionDataType commandsUnion1;
 	    commandsUnion1.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_ACTUATEJOINTSPARAMSSET;

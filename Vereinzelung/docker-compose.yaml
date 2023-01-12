@@ -28,7 +28,7 @@ services:
     volumes:
       - ./configFiles:/usr/src/samy/configFiles
   camera: 
-    command: /bin/bash -c 'python3 main.py core Camera'
+    command: /bin/bash -c 'python3 main.py core CameraPlugin'
     image: camera-plugin
     tty: true
     privileged: true
@@ -40,7 +40,7 @@ services:
       - ./configFiles:/usr/src/samy/configFiles
   controller:
     image: bpmn-controller
-    command: python3 Tests/startBPMNController.py core UR5Test.diagram BPMNbasedController_Configuration_File.yaml
+    command: python3 Tests/startBPMNController.py core FHTW_UseCase.diagram BPMNbasedController_Configuration_File.yaml
     tty: true
     volumes:
       - ./configFiles:/usr/src/samy/configFiles

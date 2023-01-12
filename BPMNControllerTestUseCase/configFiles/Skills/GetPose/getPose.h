@@ -5,6 +5,6 @@
 
 extern "C" {
 
-	void checkStorageSkill(UA_CRCL_FractionDataType const * const dummy);
+	void getPose(UA_UInt32 const * const dummy);
     
 }

@@ -8,4 +8,5 @@ cd /usr/src/samy/configFiles/Skills/PlaceSkill/ && make -p build && cd build && 
 cd /usr/src/samy/configFiles/Skills/PickSkill/ && make -p build && cd build && cmake .. && make -j$((`nproc`-2)) &&  mv libpickSkill.so.1.0 ../libpickSkill.so && \
 cd /usr/src/samy/configFiles/Skills/CheckStorageSkill/ && make -p build && cd build && cmake .. && make -j$((`nproc`-2)) &&  mv libcheckStorageSkill.so.1.0 ../libcheckStorageSkill.so && \
 cd /usr/src/samy/configFiles/Skills/PlaceGridSkill/ && make -p build && cd build && cmake .. && make -j$((`nproc`-2)) &&  mv libplaceGridSkill.so.1.0 ../libplaceGridSkill.so && \
+cd /usr/src/samy/configFiles/Skills/MoveToSkill/ && make -p build && cd build && cmake .. && make -j$((`nproc`-2)) &&  mv libmoveToSkill.so.1.0 ../libmoveToSkill.so && \
 /usr/src/samy/build/SAMYCore /usr/src/samy/configFiles/SAMYCoreConfig.yaml

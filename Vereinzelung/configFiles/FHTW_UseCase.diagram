@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SamyBpmnModel="http://www.example.org/SamyBpmnModel" xmlns:al="http://eclipse.org/graphiti/mm/algorithms" xmlns:pi="http://eclipse.org/graphiti/mm/pictograms">
+  <SamyBpmnModel:Start id="place_id_1">
+    <outgoing>trans_id_1</outgoing>
+  </SamyBpmnModel:Start>
+  <SamyBpmnModel:End id="place_id_2">
+    <incoming>trans_id_40</incoming>
+  </SamyBpmnModel:End>
+  <SamyBpmnModel:VariableContainer id="v_cont_id_1">
+    <variables name="counter">
+      <values key="0" value="1"/>
+      <values key="1" value="2"/>
+    </variables>
+    <!-- <variables name="grey">
+      <values key="0" value="0"/>
+      <values key="1" value="1"/>
+    </variables>
+    <variables name="yellow">
+      <values key="0" value="0"/>
+      <values key="1" value="1"/>
+    </variables>
+    <variables name="storage1">
+      <values key="0" value="0"/>
+      <values key="1" value="1"/>
+    </variables>
+    <variables name="storage2">
+      <values key="0" value="0"/>
+      <values key="1" value="1"/>
+    </variables> -->
+  </SamyBpmnModel:VariableContainer>
+  <SamyBpmnModel:VariableManipulationTable id="place_id_3" name="Init Counter">
+    <incoming>trans_id_1</incoming>
+    <outgoing>trans_id_2</outgoing>
+    <in name="counter">
+      <values key="0" value="1"/>
+      <values key="1" value="2"/>
+    </in>
+    <out name="counter">
+      <values key="0" value="1"/>
+      <values key="1" value="1"/>
+    </out>
+  </SamyBpmnModel:VariableManipulationTable>
+  <SamyBpmnModel:Process id="place_id_4" name="UR5Plugin:MoveToSkill">
+    <incoming>trans_id_2</incoming>
+    <outgoing>trans_id_3</outgoing>
+    <param key='goalPose' type='data' >UR5-Home</param>
+    <param key='moveType' type='data' >MoveJ</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Process id="place_id_5" name="OpenManPlugin:MoveToSkill">
+    <incoming>trans_id_3</incoming>
+    <outgoing>trans_id_33</outgoing>
+    <param key='goalPose' type='data' >OpenMan-Home</param>
+    <param key='moveType' type='data' >MoveJ</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Process id="place_id_6" name="CameraPlugin:GetPoseSkill">
+    <incoming>trans_id_34</incoming>
+    <outgoing>trans_id_6</outgoing>
+    <param key='dummy' type='data' >Offset</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:LoopbackGateway id="place_id_7">
+    <incoming>trans_id_33</incoming>
+    <incoming>trans_id_35</incoming>
+    <incoming>trans_id_42</incoming>
+    <outgoing>trans_id_34</outgoing>
+  </SamyBpmnModel:LoopbackGateway>
+  <SamyBpmnModel:ExclusiveGateway id="place_id_8" keyVariable="grey">
+    <incoming>trans_id_6</incoming>
+    <outgoing>trans_id_7</outgoing>
+    <outgoing>trans_id_9</outgoing>
+  </SamyBpmnModel:ExclusiveGateway>
+  <SamyBpmnModel:LoopbackGateway id="place_id_9">
+    <incoming>trans_id_7</incoming>
+    <incoming>trans_id_15</incoming>
+    <outgoing>trans_id_8</outgoing>
+  </SamyBpmnModel:LoopbackGateway>
+  <SamyBpmnModel:Process id="place_id_10" name="CameraPlugin:GetPoseSkill">
+    <incoming>trans_id_8</incoming>
+    <outgoing>trans_id_12</outgoing>
+    <param key='dummy' type='data' >Offset</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Process id="place_id_11" name="UR5Plugin:PickAndPlaceSkill">
+    <incoming>trans_id_9</incoming>
+    <outgoing>trans_id_10</outgoing>
+    <param key='pickPose' type='info' >CameraPose</param>
+    <param key='placePose' type='data' >RefillGrey</param>
+    <param key='midPose' type='data' >UR5-Home</param>
+    <param key='offset' type='data' >Offset</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Process id="place_id_12" name="UR5Plugin:MoveToSkill">
+    <incoming>trans_id_10</incoming>
+    <outgoing>trans_id_35</outgoing>
+    <param key='goalPose' type='data' >UR5-Home</param>
+    <param key='moveType' type='data' >MoveJ</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Transition id="trans_id_1" sourceRef="place_id_1" targetRef="place_id_3"/>
+  <SamyBpmnModel:Transition id="trans_id_2" sourceRef="place_id_3" targetRef="place_id_4"/>
+  <SamyBpmnModel:Transition id="trans_id_3" sourceRef="place_id_4" targetRef="place_id_5"/>
+  <SamyBpmnModel:Transition id="trans_id_6" sourceRef="place_id_6" targetRef="place_id_8"/>
+  <SamyBpmnModel:Transition id="trans_id_7" sourceRef="place_id_8" targetRef="place_id_9">
+    <condition>0</condition>
+  </SamyBpmnModel:Transition>
+  <SamyBpmnModel:Transition id="trans_id_8" sourceRef="place_id_9" targetRef="place_id_10"/>
+  <SamyBpmnModel:Transition id="trans_id_9" sourceRef="place_id_8" targetRef="place_id_11">
+    <condition>1</condition>
+  </SamyBpmnModel:Transition>
+  <SamyBpmnModel:Transition id="trans_id_10" sourceRef="place_id_11" targetRef="place_id_12"/>
+  <SamyBpmnModel:ExclusiveGateway id="place_id_13" keyVariable="yellow">
+    <incoming>trans_id_12</incoming>
+    <outgoing>trans_id_13</outgoing>
+    <outgoing>trans_id_36</outgoing>
+  </SamyBpmnModel:ExclusiveGateway>
+  <SamyBpmnModel:Process id="place_id_14" name="OpenManPlugin:PickAndPlaceSkill">
+    <incoming>trans_id_13</incoming>
+    <outgoing>trans_id_14</outgoing>
+    <param key='pickPose' type='info' >CameraPose</param>
+    <param key='placePose' type='data' >RefillYellow</param>
+    <param key='midPose' type='data' >OpenMan-MidPose</param>
+    <param key='offset' type='data' >Offset</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Transition id="trans_id_12" sourceRef="place_id_10" targetRef="place_id_13"/>
+  <SamyBpmnModel:Transition id="trans_id_13" sourceRef="place_id_13" targetRef="place_id_14">
+    <condition>1</condition>
+  </SamyBpmnModel:Transition>
+  <SamyBpmnModel:Process id="place_id_15" name="OpenManPlugin:MoveToSkill">
+    <incoming>trans_id_14</incoming>
+    <outgoing>trans_id_15</outgoing>
+    <param key='goalPose' type='data' >OpenMan-Home</param>
+    <param key='moveType' type='data' >MoveJ</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Transition id="trans_id_14" sourceRef="place_id_14" targetRef="place_id_15"/>
+  <SamyBpmnModel:Transition id="trans_id_15" sourceRef="place_id_15" targetRef="place_id_9"/>
+  <SamyBpmnModel:LoopbackGateway id="place_id_16">
+    <incoming>trans_id_21</incoming>
+    <incoming>trans_id_36</incoming>
+    <outgoing>trans_id_17</outgoing>
+  </SamyBpmnModel:LoopbackGateway>
+  <SamyBpmnModel:Process id="place_id_17" name="MqttPlugin:MoveCylinderSkill">
+    <incoming>trans_id_19</incoming>
+    <outgoing>trans_id_20</outgoing>
+    <param key='joint' type='data' >ActivateZylinderBottom</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Process id="place_id_18" name="MqttPlugin:CheckStorageSkill">
+    <incoming>trans_id_17</incoming>
+    <outgoing>trans_id_18</outgoing>
+    <param key='dummy' type='data' >Offset</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:ExclusiveGateway id="place_id_19" keyVariable="storage1">
+    <incoming>trans_id_18</incoming>
+    <outgoing>trans_id_19</outgoing>
+    <outgoing>trans_id_22</outgoing>
+  </SamyBpmnModel:ExclusiveGateway>
+  <SamyBpmnModel:Process id="place_id_20" name="MqttPlugin:MoveCylinderSkill">
+    <incoming>trans_id_20</incoming>
+    <outgoing>trans_id_21</outgoing>
+    <param key='joint' type='data' >DeactivateZylinderBottom</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Transition id="trans_id_17" sourceRef="place_id_16" targetRef="place_id_18"/>
+  <SamyBpmnModel:Transition id="trans_id_18" sourceRef="place_id_18" targetRef="place_id_19"/>
+  <SamyBpmnModel:Transition id="trans_id_19" sourceRef="place_id_19" targetRef="place_id_17">
+    <condition>0</condition>
+  </SamyBpmnModel:Transition>
+  <SamyBpmnModel:Transition id="trans_id_20" sourceRef="place_id_17" targetRef="place_id_20"/>
+  <SamyBpmnModel:Transition id="trans_id_21" sourceRef="place_id_20" targetRef="place_id_16"/>
+  <SamyBpmnModel:LoopbackGateway id="place_id_21">
+    <incoming>trans_id_22</incoming>
+    <incoming>trans_id_27</incoming>
+    <outgoing>trans_id_23</outgoing>
+  </SamyBpmnModel:LoopbackGateway>
+  <SamyBpmnModel:Transition id="trans_id_22" sourceRef="place_id_19" targetRef="place_id_21">
+    <condition>1</condition>
+  </SamyBpmnModel:Transition>
+  <SamyBpmnModel:Process id="place_id_22" name="MqttPlugin:CheckStorageSkill">
+    <incoming>trans_id_23</incoming>
+    <outgoing>trans_id_24</outgoing>
+    <param key='dummy' type='data' >Offset</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Process id="place_id_23" name="MqttPlugin:MoveCylinderSkill">
+    <incoming>trans_id_25</incoming>
+    <outgoing>trans_id_26</outgoing>
+    <param key='joint' type='data' >ActivateZylinderTop</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:ExclusiveGateway id="place_id_24" keyVariable="storage2">
+    <incoming>trans_id_24</incoming>
+    <outgoing>trans_id_25</outgoing>
+    <outgoing>trans_id_37</outgoing>
+  </SamyBpmnModel:ExclusiveGateway>
+  <SamyBpmnModel:Process id="place_id_25" name="MqttPlugin:MoveCylinderSkill">
+    <incoming>trans_id_26</incoming>
+    <outgoing>trans_id_27</outgoing>
+    <param key='joint' type='data' >DeactivateZylinderTop</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Transition id="trans_id_23" sourceRef="place_id_21" targetRef="place_id_22"/>
+  <SamyBpmnModel:Transition id="trans_id_24" sourceRef="place_id_22" targetRef="place_id_24"/>
+  <SamyBpmnModel:Transition id="trans_id_25" sourceRef="place_id_24" targetRef="place_id_23">
+    <condition>0</condition>
+  </SamyBpmnModel:Transition>
+  <SamyBpmnModel:Transition id="trans_id_26" sourceRef="place_id_23" targetRef="place_id_25"/>
+  <SamyBpmnModel:Transition id="trans_id_27" sourceRef="place_id_25" targetRef="place_id_21"/>
+  <SamyBpmnModel:Process id="place_id_26" name="UR5Plugin:PickAndPlaceSkill">
+    <incoming>trans_id_37</incoming>
+    <outgoing>trans_id_30</outgoing>
+    <param key='pickPose' type='data' >StationBottom</param>
+    <param key='placePose' type='data' >PlaceBottom</param>
+    <param key='midPose' type='data' >UR5-Home</param>
+    <param key='offset' type='data' >Offset</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Process id="place_id_27" name="UR5Plugin:MoveToSkill">
+    <incoming>trans_id_30</incoming>
+    <outgoing>trans_id_31</outgoing>
+    <param key='goalPose' type='data' >UR5-Home</param>
+    <param key='moveType' type='data' >MoveJ</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Transition id="trans_id_30" sourceRef="place_id_26" targetRef="place_id_27"/>
+  <SamyBpmnModel:Process id="place_id_28" name="OpenManPlugin:PickAndPlaceSkill">
+    <incoming>trans_id_31</incoming>
+    <outgoing>trans_id_32</outgoing>
+    <param key='pickPose' type='data' >StationTop</param>
+    <param key='placePose' type='data' >PlaceTop</param>
+    <param key='midPose' type='data' >OpenMan-MidPose</param>
+    <param key='offset' type='data' >Offset</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Process id="place_id_29" name="OpenManPlugin:MoveToSkill">
+    <incoming>trans_id_32</incoming>
+    <outgoing>trans_id_39</outgoing>
+    <param key='goalPose' type='data' >OpenMan-Home</param>
+    <param key='moveType' type='data' >MoveJ</param>
+  </SamyBpmnModel:Process>
+  <SamyBpmnModel:Transition id="trans_id_31" sourceRef="place_id_27" targetRef="place_id_28"/>
+  <SamyBpmnModel:Transition id="trans_id_32" sourceRef="place_id_28" targetRef="place_id_29"/>
+  <SamyBpmnModel:ExclusiveGateway id="place_id_30" keyVariable="counter">
+    <incoming>trans_id_39</incoming>
+    <outgoing>trans_id_40</outgoing>
+    <outgoing>trans_id_41</outgoing>
+  </SamyBpmnModel:ExclusiveGateway>
+  <SamyBpmnModel:Transition id="trans_id_33" sourceRef="place_id_5" targetRef="place_id_7"/>
+  <SamyBpmnModel:Transition id="trans_id_34" sourceRef="place_id_7" targetRef="place_id_6"/>
+  <SamyBpmnModel:Transition id="trans_id_35" sourceRef="place_id_12" targetRef="place_id_7"/>
+  <SamyBpmnModel:Transition id="trans_id_36" sourceRef="place_id_13" targetRef="place_id_16">
+    <condition>0</condition>
+  </SamyBpmnModel:Transition>
+  <SamyBpmnModel:Transition id="trans_id_37" sourceRef="place_id_24" targetRef="place_id_26">
+    <condition>1</condition>
+  </SamyBpmnModel:Transition>
+  <SamyBpmnModel:Transition id="trans_id_39" sourceRef="place_id_29" targetRef="place_id_30"/>
+  <SamyBpmnModel:Transition id="trans_id_40" sourceRef="place_id_30" targetRef="place_id_2">
+    <condition>2</condition>
+  </SamyBpmnModel:Transition>
+  <SamyBpmnModel:VariableManipulationTable id="place_id_31" name="Loop Count">
+    <incoming>trans_id_41</incoming>
+    <outgoing>trans_id_42</outgoing>
+    <in name="counter">
+      <values key="0" value="1"/>
+      <values key="1" value="2"/>
+    </in>
+    <out name="counter">
+      <values key="0" value="2"/>
+      <values key="1" value="2"/>
+    </out>
+  </SamyBpmnModel:VariableManipulationTable>
+  <SamyBpmnModel:Transition id="trans_id_41" sourceRef="place_id_30" targetRef="place_id_31">
+    <condition>1</condition>
+  </SamyBpmnModel:Transition>
+  <SamyBpmnModel:Transition id="trans_id_42" sourceRef="place_id_31" targetRef="place_id_7"/>
+</xmi:XMI>

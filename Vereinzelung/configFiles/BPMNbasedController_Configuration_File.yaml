@@ -4,26 +4,26 @@ States:
     type: "String"
     values:
       - Ready
-  Controller_Ready:
-    key: "Robot_UR5Plugin_CurrentState"
+  # Controller_Ready:
+  #   key: "Robot_UR5Plugin_CurrentState"
+  #   type: "String"
+  #   values:
+  #     - Ready
+  OpenManPlugin_Ready:
+    key: "Robot_OpenManPlugin_CurrentState"
     type: "String"
     values:
       - Ready
-  # OpenMan_Ready:
-  #   key: "Robot_OpenMan_CurrentState"
-  #   type: "String"
-  #   values:
-  #     - Ready
-  # MqttPlugin_Ready:
-  #   key: "Robot_MqttPlugin_CurrentState"
-  #   type: "String"
-  #   values:
-  #     - Ready
-  # Camera_Ready:
-  #   key: "Robot_Camera_CurrentState"
-  #   type: "String"
-  #   values:
-  #     - Ready
+  MqttPlugin_Ready:
+    key: "Robot_MqttPlugin_CurrentState"
+    type: "String"
+    values:
+      - Ready
+  CameraPlugin_Ready:
+    key: "Robot_CameraPlugin_CurrentState"
+    type: "String"
+    values:
+      - Ready
 InformationSources:
   storage1:
     key: InformationSource_LightBarrierStorage1_0

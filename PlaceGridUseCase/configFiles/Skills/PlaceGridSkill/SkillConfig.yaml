@@ -8,9 +8,13 @@ SAMYSkillConfig:
         DataType: UA_CRCL_PoseDataType
       - Name: "pickPose"
         DataType: UA_CRCL_PoseDataType
+      - Name: "palletSavePose"
+        DataType: UA_CRCL_PoseDataType
       - Name: "slotsX"
         DataType: UA_CRCL_FractionDataType
       - Name: "slotsY"
+        DataType: UA_CRCL_FractionDataType
+      - Name: "slotsZ"
         DataType: UA_CRCL_FractionDataType
       - Name: "offsetX"
         DataType: UA_CRCL_FractionDataType

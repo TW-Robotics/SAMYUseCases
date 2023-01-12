@@ -25,63 +25,111 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
     */
     void pickAndPlaceSkill( UA_CRCL_PoseDataType const * const pickPose,
                       UA_CRCL_PoseDataType const * const placePose,
+                      UA_CRCL_PoseDataType const * const midPose,
                       UA_CRCL_FractionDataType const * const offset){
-        UA_CRCL_PoseDataType pick = *pickPose;
-        UA_CRCL_PoseDataType place = *placePose;
+        UA_CRCL_PoseDataType pickPose_local = *pickPose;
+        UA_CRCL_PoseDataType placePose_local = *placePose;
+        UA_CRCL_PoseDataType midPose_local = *midPose;
         UA_CRCL_FractionDataType offset_local = *offset;
         std::vector<UA_CRCLCommandsParamsSetsUnionDataType> commands;
 
-        // Create pickPose MoveToParams
-        UA_MoveToParamsSetDataType pickParams;
-        pickParams.name = UA_STRING("PickParameter");
-        pickParams.realTimeParameter = false;
-        pickParams.endPosition = pick;
-        pickParams.moveStraight = false;
+        UA_MoveToParamsSetDataType moveToAbove;
+	    moveToAbove.name = UA_STRING( "UA_MoveToParamsSetDataType" );
+		moveToAbove.realTimeParameter = false;
+		moveToAbove.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
+	  	moveToAbove.moveStraight = false;
+	    moveToAbove.endPosition = pickPose_local;
+		moveToAbove.endPosition.point.z += 0.07; // First move 5cm above the final pick position
+		
 
-        // Create abovePickPose MoveToParams
-        UA_MoveToParamsSetDataType abovePickParams;
-        pickParams.name = UA_STRING("AbovePickParameter");
-        pickParams.realTimeParameter = false;
-        abovePickParams.endPosition = pick;
-        abovePickParams.moveStraight = false;
-        abovePickParams.endPosition.point.z = abovePickParams.endPosition.point.z + offset_local.fraction;
+		UA_CRCLCommandsParamsSetsUnionDataType moveToAboveUnion;
+	    moveToAboveUnion.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
+	    moveToAboveUnion.fields.moveToParamsSet = moveToAbove;
 
-        // Create placePose MoveToParams
-        UA_MoveToParamsSetDataType placeParams;
-        pickParams.name = UA_STRING("PlaceParameter");
-        pickParams.realTimeParameter = false;
-        placeParams.endPosition = place;
-        placeParams.moveStraight = false;
+        UA_MoveToParamsSetDataType moveToMid;
+	    moveToMid.name = UA_STRING( "UA_MoveToParamsSetDataType" );
+		moveToMid.realTimeParameter = false;
+		moveToMid.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
+	  	moveToMid.moveStraight = false;
+	    moveToMid.endPosition = midPose_local;
+		
 
-        // Create abovePlacePose MoveToParams
-        UA_MoveToParamsSetDataType abovePlaceParams;
-        pickParams.name = UA_STRING("AbovePlaceParameter");
-        pickParams.realTimeParameter = false;
-        abovePlaceParams.endPosition = place;
-        abovePlaceParams.moveStraight = false;
-        abovePlaceParams.endPosition.point.z = abovePlaceParams.endPosition.point.z + offset_local.fraction;
+		UA_CRCLCommandsParamsSetsUnionDataType moveToMidUnion;
+	    moveToMidUnion.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
+	    moveToMidUnion.fields.moveToParamsSet = moveToMid;
+
+		
+		UA_MoveToParamsSetDataType moveTo;
+	    moveTo.name = UA_STRING( "UA_MoveToParamsSetDataType" );
+		moveTo.realTimeParameter = false;
+		moveTo.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
+	  	moveTo.moveStraight = false;
+	    moveTo.endPosition = pickPose_local;
+		
+
+		UA_CRCLCommandsParamsSetsUnionDataType moveToUnion;
+	    moveToUnion.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
+	    moveToUnion.fields.moveToParamsSet = moveTo;
+
+		UA_SetEndeffectorParamsSetDataType close;
+		close.name = UA_STRING("closeGripper");
+		close.realTimeParameter = false;
+		close.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
+		close.setting.fraction = 1.0; // TODO Check if 1 is realy closed!!!!
+		close.setting.fractionMin = 0.0;
+		close.setting.fractionMax = 1.0;
+
+		UA_SetEndeffectorParamsSetDataType open;
+		open.name = UA_STRING("closeGripper");
+		open.realTimeParameter = false;
+		open.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
+		open.setting.fraction = 0.0; // TODO Check if 1 is realy closed!!!!
+		open.setting.fractionMin = 0.0;
+		open.setting.fractionMax = 1.0;
+
+		UA_CRCLCommandsParamsSetsUnionDataType closeUnion;
+	    closeUnion.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_SETENDEFFECTORPARAMSSET;
+	    closeUnion.fields.setEndeffectorParamsSet = close;
+
+        UA_CRCLCommandsParamsSetsUnionDataType openUnion;
+	    openUnion.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_SETENDEFFECTORPARAMSSET;
+	    openUnion.fields.setEndeffectorParamsSet = open;
+
+        UA_MoveToParamsSetDataType moveToPlaceAbove;
+	    moveToPlaceAbove.name = UA_STRING( "UA_MoveToParamsSetDataType" );
+		moveToPlaceAbove.realTimeParameter = false;
+		moveToPlaceAbove.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
+	  	moveToPlaceAbove.moveStraight = false;
+	    moveToPlaceAbove.endPosition = placePose_local;
+		moveToPlaceAbove.endPosition.point.z += 0.07; // First move 5cm above the final pick position
+		
+		UA_CRCLCommandsParamsSetsUnionDataType moveToPlaceAboveUnion;
+	    moveToPlaceAboveUnion.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
+	    moveToPlaceAboveUnion.fields.moveToParamsSet = moveToPlaceAbove;
+
+		
+		UA_MoveToParamsSetDataType moveToPlace;
+	    moveToPlace.name = UA_STRING( "UA_MoveToParamsSetDataType" );
+		moveToPlace.realTimeParameter = false;
+		moveToPlace.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
+	  	moveToPlace.moveStraight = false;
+	    moveToPlace.endPosition = placePose_local;
+		
+		UA_CRCLCommandsParamsSetsUnionDataType moveToPlaceUnion;
+	    moveToPlaceUnion.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
+	    moveToPlaceUnion.fields.moveToParamsSet = moveToPlace;
 
 
-        UA_CRCLCommandsParamsSetsUnionDataType commandsUnion1;
-            commandsUnion1.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
-            commandsUnion1.fields.moveToParamsSet = abovePickParams;
-            commands.emplace_back( commandsUnion1 );
-        UA_CRCLCommandsParamsSetsUnionDataType commandsUnion2;
-            commandsUnion2.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
-            commandsUnion2.fields.moveToParamsSet = pickParams;
-            commands.emplace_back( commandsUnion2 );
-        UA_CRCLCommandsParamsSetsUnionDataType commandsUnion3;
-            commandsUnion3.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
-            commandsUnion3.fields.moveToParamsSet = abovePlaceParams;
-            commands.emplace_back( commandsUnion3 );
-        UA_CRCLCommandsParamsSetsUnionDataType commandsUnion4;
-            commandsUnion4.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
-            commandsUnion4.fields.moveToParamsSet = placeParams;
-            commands.emplace_back( commandsUnion4 );
-        UA_CRCLCommandsParamsSetsUnionDataType commandsUnion5;
-            commandsUnion5.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
-            commandsUnion5.fields.moveToParamsSet = abovePlaceParams;
-            commands.emplace_back( commandsUnion5 );
+		commands.push_back(moveToAboveUnion);
+        commands.push_back(openUnion);
+		commands.push_back(moveToUnion);
+		commands.push_back(closeUnion);
+		commands.push_back(moveToAboveUnion);
+		commands.push_back(moveToPlaceAboveUnion);
+		commands.push_back(moveToPlaceUnion);
+		commands.push_back(openUnion);
+		commands.push_back(moveToPlaceAboveUnion);
+        commands.push_back(moveToMidUnion);
         
         setCommandsBuffer( commands ); /* Sets the buffer of commands to be executed by the robot to be the previously created vector 
         of commands "commands". It does not send them yet nor modifies the CommandsBuffer variable in the SAMYCore. 

@@ -24,8 +24,10 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 	*/
 	void placeGridSkill(UA_CRCL_PoseDataType const * const startPose,
 	 					UA_CRCL_PoseDataType const * const pickPose,
+						UA_CRCL_PoseDataType const * const palletSavePose,
 	  					UA_CRCL_FractionDataType const * const slotsX,
 	  				 	UA_CRCL_FractionDataType const * const slotsY,
+						UA_CRCL_FractionDataType const * const slotsZ,
 	    				UA_CRCL_FractionDataType const * const offsetX,
 		 				UA_CRCL_FractionDataType const * const offsetY)
 		{
@@ -33,9 +35,11 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 		// Copy the parameter in local variables
 		UA_CRCL_PoseDataType startPose_local = *startPose;
 		UA_CRCL_PoseDataType pickPose_local = *pickPose;
+		UA_CRCL_PoseDataType palletSavePose_local = *palletSavePose;
 		UA_CRCL_FractionDataType slotsX_local = *slotsX;
-		UA_CRCL_FractionDataType slotsY_local = *offsetX;
-		UA_CRCL_FractionDataType offsetX_local = *slotsY;
+		UA_CRCL_FractionDataType slotsY_local = *slotsY;
+		UA_CRCL_FractionDataType slotsZ_local = *slotsZ;
+		UA_CRCL_FractionDataType offsetX_local = *offsetX;
 		UA_CRCL_FractionDataType offsetY_local = *offsetY;
 			
 		std::cout << "OffsetX: " << offsetX_local.fraction << " | OffsetY: " << offsetY_local.fraction << std::endl;
@@ -57,6 +61,18 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 		UA_CRCLCommandsParamsSetsUnionDataType moveToPickUnion;
 	    moveToPickUnion.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
 	    moveToPickUnion.fields.moveToParamsSet = moveToPick;
+
+		// Create pallet save pose
+		UA_MoveToParamsSetDataType moveToPalletSave;
+	    moveToPalletSave.name = UA_STRING( "UA_MoveToParamsSetDataType" );
+		moveToPalletSave.realTimeParameter = false;
+		moveToPalletSave.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
+	  	moveToPalletSave.moveStraight = false;
+	    moveToPalletSave.endPosition = palletSavePose_local;
+
+		UA_CRCLCommandsParamsSetsUnionDataType moveToPalletSaveUnion;
+	    moveToPalletSaveUnion.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MOVETOPARAMSSET;
+	    moveToPalletSaveUnion.fields.moveToParamsSet = moveToPalletSave;
 
 		// Create above pick pose
 		UA_MoveToParamsSetDataType moveToAbovePick;
@@ -149,10 +165,12 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 				commands.push_back(moveToPickUnion);
 				commands.push_back(closeUnion);
 				commands.push_back(moveToAbovePickUnion);
+				commands.push_back(moveToPalletSaveUnion);
 				commands.push_back(moveToAboveUnion);
 				commands.push_back(moveToUnion);
 				commands.push_back(openUnion);
 				commands.push_back(moveToAboveUnion);
+				commands.push_back(moveToPalletSaveUnion);
 				std::cout << "One set of commands added" << std::endl;
 
 				//setCommandsBuffer( commands );

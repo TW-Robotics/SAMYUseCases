@@ -5,4 +5,4 @@ SAMYSkillConfig:
    EntryFunction: "getPoseSkill"
    Parameters:
       - Name: "dummy"
-        DataType: UInt32
+        DataType: UA_CRCL_FractionDataType

@@ -31,7 +31,7 @@ InformationSources:
       - InformationSource:
               InformationSourceName: "CameraPose"
               DataTypes:
-                    - MoveToParamsSetDataType
+                    - CRCL_PoseDataType
       - InformationSource:
               InformationSourceName: "YellowPartDetected"
               DataTypes:
@@ -40,10 +40,10 @@ InformationSources:
               InformationSourceName: "GreyPartDetected"
               DataTypes:
                     - Boolean
-      - InformationSource:
-              InformationSourceName: "GridPosition"
-              DataTypes:
-                    - UInt32
+      # - InformationSource:
+      #         InformationSourceName: "GridPosition"
+      #         DataTypes:
+      #               - UInt32
 # - InformationSource:
 #       InformationSourceName: "DistanceSensor1"
 #       DataTypes:

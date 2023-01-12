@@ -64,6 +64,27 @@ DataBase:
       k: -1
   - !!python/object:CRCL_DataTypes.CRCL_PoseDataType
     id: 0
+    name: palletSavePose
+    point: !!python/object:CRCL_DataTypes.CRCL_PointDataType
+      id: 0
+      name: startPoint
+      x: -0.2
+      y: -0.1
+      z: 0.4
+    xAxis: !!python/object:CRCL_DataTypes.CRCL_VectorDataType
+      id: 0
+      name: startX
+      i: 1
+      j: 0
+      k: 0
+    zAxis: !!python/object:CRCL_DataTypes.CRCL_VectorDataType
+      id: 0
+      name: startZ
+      i: 0
+      j: 0
+      k: -1
+  - !!python/object:CRCL_DataTypes.CRCL_PoseDataType
+    id: 0
     name: pickPose
     point: !!python/object:CRCL_DataTypes.CRCL_PointDataType
       id: 0
@@ -100,6 +121,11 @@ DataBase:
     fractionMin: 0.0
   - !!python/object:CRCL_DataTypes.CRCL_FractionDataType
     name: "slotsY"
+    fraction: 2.0
+    fractionMax: 10.0
+    fractionMin: 0.0
+  - !!python/object:CRCL_DataTypes.CRCL_FractionDataType
+    name: "slotsZ"
     fraction: 2.0
     fractionMax: 10.0
     fractionMin: 0.0

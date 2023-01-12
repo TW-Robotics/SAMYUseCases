@@ -23,7 +23,7 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 	I am planning to write a compiler-preprocessor based on Clang for automating these stuff so you can write code without these artifacts, 
 	but for the moment should be fine like this.
     */
-    void checkStorageSkill( UA_UInt32 const * const dummy){
+    void checkStorageSkill( UA_CRCL_FractionDataType const * const dummy){
 
         std::vector<UA_CRCLCommandsParamsSetsUnionDataType> commands;
 

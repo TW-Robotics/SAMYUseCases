@@ -2,7 +2,7 @@ InformationSources:
   - InformationSource:
       InformationSourceName: "CameraPose"
       DataTypes:
-        - MoveToParametersSetDataType
+        - CRCL_PoseDataType
   - InformationSource:
       InformationSourceName: "CameraReady"
       DataTypes:

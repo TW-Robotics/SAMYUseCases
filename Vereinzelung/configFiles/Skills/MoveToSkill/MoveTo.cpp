@@ -55,25 +55,9 @@ extern "C"{ // This is important, since avoid name mangling of the symbols, so t
 		UA_CRCLCommandsParamsSetsUnionDataType speedUnion;
 		speedUnion.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_SETTRANSSPEEDPARAMSSET;
 		speedUnion.fields.setTransSpeedParamsSet = speed;
-		
-		UA_MessageParamsSetDataType message;
-		message.name =  UA_STRING( "Message" );
-		message.realTimeParameter = false;
-		message.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
-		message.message = UA_STRING( "This is a test message" );
-
-		UA_InitCanonParamsSetDataType c1;
-	    c1.name = UA_STRING( "UA_InitCanonParamsSetDataType" );
-	    c1.realTimeParameter = false;
-	    c1.realTimeParameterNodeID = UA_NODEID_NUMERIC( 5, 0 );
-
-	    UA_CRCLCommandsParamsSetsUnionDataType messageUnion;
-	    messageUnion.switchField = UA_CRCLCOMMANDSPARAMSSETSUNIONDATATYPESWITCH_MESSAGEPARAMSSET;
-	    messageUnion.fields.messageParamsSet = message;
 
 
 		commands.push_back(speedUnion);
-		commands.push_back(messageUnion);
 		commands.push_back( moveToUnion );
 
 

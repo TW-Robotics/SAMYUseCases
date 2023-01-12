@@ -17,8 +17,10 @@
     <outgoing>trans_id_3</outgoing>
     <param key="startPose" type="data" >startPose</param>
     <param key="pickPose" type="data" >pickPose</param>
+    <param key="palletSavePose" type="data" >palletSavePose</param>
     <param key="slotsX" type="data" >slotsX</param>
     <param key="slotsY" type="data" >slotsY</param>
+    <param key="slotsZ" type="data" >slotsZ</param>
     <param key="offsetX" type="data" >offsetX</param>
     <param key="offsetY" type="data" >offsetY</param>
   </SamyBpmnModel:Process>

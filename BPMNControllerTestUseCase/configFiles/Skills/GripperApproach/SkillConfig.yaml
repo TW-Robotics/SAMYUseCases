@@ -1,0 +1,8 @@
+SAMYSkillConfig:
+   SkillName: "GripperApproach"
+   Language: "C++"
+   EntryFile: "gripperApproach.cpp"
+   EntryFunction: "gripperApproach"
+   Parameters:
+      - Name: "pose"
+        DataType: UA_CRCL_PoseDataType

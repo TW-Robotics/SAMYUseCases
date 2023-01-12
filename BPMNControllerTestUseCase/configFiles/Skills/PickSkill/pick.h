@@ -5,6 +5,6 @@
 
 extern "C" {
 
-	void checkStorageSkill(UA_CRCL_FractionDataType const * const dummy);
+	void pickSkill(UA_CRCL_PoseDataType const * const pickPose);
     
 }

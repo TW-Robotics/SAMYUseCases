@@ -7,8 +7,10 @@ extern "C" {
 
 	void placeGridSkill(UA_CRCL_PoseDataType const * const startPose,
 	        UA_CRCL_PoseDataType const * const pickPose,
+			UA_CRCL_PoseDataType const * const palletSavePose,
 	        UA_CRCL_FractionDataType const * const slotsX,
 	        UA_CRCL_FractionDataType const * const slotsY,
+			UA_CRCL_FractionDataType const * const slotsZ,
 	        UA_CRCL_FractionDataType const * const offsetX,
 	        UA_CRCL_FractionDataType const * const offsetY);
     

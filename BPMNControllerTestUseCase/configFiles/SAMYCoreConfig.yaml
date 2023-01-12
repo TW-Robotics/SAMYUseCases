@@ -12,7 +12,7 @@ SAMYCoreConfig:
          OPCUA: "error"
       Path: "logs"
    ConfigFiles:
-      SkillsFile: "/usr/src/samy/configFiles/Skills.yaml"
+      SkillsFile: "/usr/src/samy/configFiles/Skills/"
       RobotsFile: "/usr/src/samy/configFiles/RobotsConfiguration.yaml"
       InformationSourcesFile: "/usr/src/samy/configFiles/InformationSources.yaml"
       DataBaseFile: "/usr/src/samy/configFiles/DataBaseFile.yaml"

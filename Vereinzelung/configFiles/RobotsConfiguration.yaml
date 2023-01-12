@@ -1,55 +1,53 @@
 Robots:
-  # - Robot:
-  #     Name: MqttPlugin
-  #     ID: 12342
-  #     Address: "mqtt"
-  #     IOLinkAddress: "10.0.0.25"
-  #     MQTTPort: 2222
-  #     Sensors:
-  #       # - Sensor:
-  #       #   Name: InductiveSensor
-  #       #   Port: 6
-  #       #   Type: DI
-  #       - Sensor:
-  #         Name: LightBarrierStorage1
-  #         Port: 3
-  #         Type: DI
-  #       - Sensor:
-  #         Name: LightBarrierStorage2
-  #         Port: 6
-  #         Type: DI
-  #       # - Sensor:
-  #       #   Name: DistanceSensor
-  #       #   Port: 3
-  #       #   Type: IO-Link
-  #     OPCUARoboticsFile: MqttPlugin.xml
-  #     Skills:
-  #       - CheckStorageSkill
-  #       - MoveCylinderSkill
-  # - Robot:
-  #     Name: OpenManPlugin
-  #     ID: 12345
-  #     Address: "10.0.0.100"
-  #     OPCUARoboticsFile: OpenMan.xml
-  #     Skills:
-  #       - MoveToSkill
-  #       - PickSkill
-  #       - PlaceSkill
-  #       - SetGripperSkill
-  #       - PlaceGridSkill
+  - Robot:
+      Name: MqttPlugin
+      ID: 12342
+      Address: "mqtt"
+      IOLinkAddress: "10.0.0.25"
+      MQTTPort: 2222
+      Sensors:
+        # - Sensor:
+        #   Name: InductiveSensor
+        #   Port: 6
+        #   Type: DI
+        - Sensor:
+          Name: LightBarrierStorage1
+          Port: 3
+          Type: DI
+        - Sensor:
+          Name: LightBarrierStorage2
+          Port: 6
+          Type: DI
+        # - Sensor:
+        #   Name: DistanceSensor
+        #   Port: 3
+        #   Type: IO-Link
+      OPCUARoboticsFile: MqttPlugin.xml
+      Skills:
+        - CheckStorageSkill
+        - MoveCylinderSkill
+  - Robot:
+      Name: OpenManPlugin
+      ID: 12345
+      Address: "10.0.0.100"
+      OPCUARoboticsFile: OpenMan.xml
+      Skills:
+        - MoveToSkill
+        - PickSkill
+        - PlaceSkill
+        - SetGripperSkill
+        - PickAndPlaceSkill
   - Robot:
       Name: UR5Plugin
       ID: 12344
-      Address: "192.168.56.101"
+      Address: "10.0.0.31"
       OPCUARoboticsFile: Ur5.xml
       Skills:
         - MoveToSkill
-        - MoveTo2Skill
         - PickSkill
         - PlaceSkill
         - PickAndPlaceSkill
         - SetGripperSkill
-        - PlaceGridSkill
       Workobject:
         - -0.764
         - 0.144
@@ -57,10 +55,10 @@ Robots:
         - 0.0
         - 0.0
         - -1.5707
-  # - Robot:
-  #     Name: CameraPlugin
-  #     ID: 45
-  #     Address: "0.0.0.0"
-  #     OPCUARoboticsFile: Camera.xml
-  #     Skills:
-  #       - GetPoseSkill
+  - Robot:
+      Name: CameraPlugin
+      ID: 45
+      Address: "0.0.0.0"
+      OPCUARoboticsFile: Camera.xml
+      Skills:
+        - GetPoseSkill

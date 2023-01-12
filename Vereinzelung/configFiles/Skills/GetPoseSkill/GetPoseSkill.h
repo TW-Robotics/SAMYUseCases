@@ -5,6 +5,6 @@
 
 extern "C" {
 
-	void getPoseSkill(UA_UInt32 const * const dummy);
+	void getPoseSkill(UA_CRCL_FractionDataType const * const dummy);
     
 }
